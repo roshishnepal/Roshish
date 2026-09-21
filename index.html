@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Roshish Nepal - Creator & Developer">
+
   <title>Roshish Nepal | Creator & Developer</title>
 
   <style>
@@ -16,171 +15,129 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #070b14;
-      color: #fff;
+      font-family: Arial, sans-serif;
+      background: #050510;
+      color: white;
       line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      width: 420px;
-      height: 420px;
-      background: rgba(0, 212, 255, 0.14);
-      filter: blur(100px);
-      border-radius: 50%;
-      top: -120px;
-      left: -100px;
-      z-index: -1;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      width: 420px;
-      height: 420px;
-      background: rgba(139, 92, 246, 0.13);
-      filter: blur(100px);
-      border-radius: 50%;
-      bottom: -140px;
-      right: -100px;
-      z-index: -1;
     }
 
     nav {
-      position: fixed;
+      position: sticky;
       top: 0;
-      width: 100%;
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(7, 11, 20, 0.72);
-      backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(255,255,255,.08);
       z-index: 1000;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .logo span {
-      color: #00d4ff;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 28px;
+      background: rgba(5, 5, 16, 0.95);
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #333;
     }
 
     nav a {
-      color: #dbe5f5;
+      color: white;
       text-decoration: none;
-      font-size: 14px;
-      transition: .3s;
+      margin: 0 12px;
+      font-weight: bold;
     }
 
     nav a:hover {
-      color: #00d4ff;
+      color: #00eaff;
     }
 
     .hero {
-      min-height: 100vh;
-      padding: 140px 7% 80px;
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 60px;
+      text-align: center;
+      padding: 30px 20px;
+      background:
+        radial-gradient(circle at top, #25205c, #050510 60%);
     }
 
-    .small {
-      color: #00d4ff;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 13px;
-      margin-bottom: 15px;
+    .profile {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #00eaff;
+      box-shadow: 0 0 30px #00eaff;
+      margin-bottom: 25px;
     }
 
-    h1 {
-      font-size: clamp(48px, 8vw, 92px);
-      line-height: .98;
-      margin-bottom: 22px;
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+      color: #00eaff;
     }
 
-    h1 span {
-      background: linear-gradient(90deg, #00d4ff, #8b5cf6);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .hero h2 {
+      font-size: 24px;
+      color: #ddd;
+      margin-bottom: 20px;
     }
 
     .hero p {
       max-width: 650px;
-      color: #aab6c8;
-      font-size: 18px;
+      color: #bbb;
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 32px;
+      color: #00eaff;
       margin-bottom: 30px;
     }
 
-    .buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+    .card {
+      background: #101020;
+      border: 1px solid #29294a;
+      border-radius: 15px;
+      padding: 25px;
+      margin: 15px 0;
+      box-shadow: 0 0 20px rgba(0, 234, 255, 0.08);
     }
 
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 13px 22px;
-      border-radius: 30px;
-      font-weight: 700;
-      border: 1px solid rgba(255,255,255,.12);
-      transition: .3s;
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
     }
 
-    .primary {
-      color: #041019;
-      background: #00d4ff;
+    .skill {
+      background: #101020;
+      padding: 20px;
+      text-align: center;
+      border-radius: 12px;
+      border: 1px solid #29294a;
     }
 
-    .secondary {
-      color: #fff;
-      background: rgba(255,255,255,.05);
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-    }
-
-    /* DASHHAIN COUNTDOWN */
+    /* DASHain COUNTDOWN */
 
     .dashain-box {
       margin-top: 35px;
-      max-width: 700px;
       padding: 25px;
-      border-radius: 24px;
-      background: rgba(255,255,255,.055);
-      border: 1px solid rgba(0,212,255,.25);
-      box-shadow: 0 0 35px rgba(0,212,255,.08);
+      max-width: 800px;
+      width: 100%;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #32105e, #081b36);
+      border: 2px solid #ffd700;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.25);
     }
 
-    .dashain-title {
-      color: #00d4ff;
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 6px;
+    .dashain-box h2 {
+      color: #ffd700;
+      margin-bottom: 10px;
     }
 
     .dashain-date {
-      color: #9eabbf;
-      font-size: 14px;
-      margin-bottom: 18px;
+      color: #fff;
+      margin-bottom: 20px;
     }
 
     .countdown {
@@ -190,452 +147,354 @@
     }
 
     .time-box {
-      padding: 14px 8px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 15px;
+      border-radius: 12px;
       text-align: center;
-      border-radius: 15px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.08);
-    }
-
-    .time-box strong {
-      display: block;
-      font-size: 28px;
-      color: #fff;
     }
 
     .time-box span {
-      font-size: 11px;
-      color: #8e9bb0;
-      text-transform: uppercase;
+      display: block;
+      font-size: 30px;
+      font-weight: bold;
+      color: #00eaff;
     }
 
-    /* LIVE NEPALI DATE & TIME */
-
-    .nepali-clock {
-      margin-top: 18px;
-      padding: 18px;
-      border-radius: 18px;
-      background: rgba(139,92,246,.08);
-      border: 1px solid rgba(139,92,246,.2);
+    .time-box small {
+      color: #ddd;
     }
 
-    .live-label {
-      color: #8b5cf6;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+    /* NEPAL CLOCK */
+
+    .clock-box {
+      margin: 25px auto;
+      max-width: 600px;
+      padding: 20px;
+      text-align: center;
+      background: #101020;
+      border: 1px solid #00eaff;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 234, 255, 0.15);
+    }
+
+    .clock-title {
+      color: #00eaff;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
 
     #nepaliDate {
-      margin-top: 5px;
-      color: #dbe5f5;
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 5px;
     }
 
     #nepaliTime {
-      color: #fff;
-      font-size: 25px;
-      font-weight: 800;
-      margin-top: 3px;
+      font-size: 30px;
+      font-weight: bold;
+      color: #00eaff;
     }
 
-    .photo-wrap {
-      display: flex;
-      justify-content: center;
-      position: relative;
+    /* MANGAL DHUN */
+
+    .music-box {
+      margin: 30px auto;
+      max-width: 600px;
+      padding: 25px;
+      text-align: center;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #22104d, #0b2038);
+      border: 2px solid #ffd700;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.2);
     }
 
-    .photo-wrap::before {
-      content: "";
-      position: absolute;
-      width: 330px;
-      height: 330px;
-      border-radius: 50%;
-      border: 1px solid rgba(0,212,255,.3);
-      animation: pulse 3s infinite;
+    .music-box h2 {
+      color: #ffd700;
+      margin-bottom: 15px;
     }
 
-    @keyframes pulse {
-      50% { transform: scale(1.08); opacity: .45; }
+    .music-box p {
+      color: #ccc;
+      margin-bottom: 20px;
     }
 
-    .profile {
-      width: min(330px, 80vw);
-      height: min(330px, 80vw);
-      object-fit: cover;
-      border-radius: 50%;
-      border: 6px solid rgba(255,255,255,.9);
-      box-shadow: 0 0 60px rgba(0,212,255,.22);
-      position: relative;
-      z-index: 2;
+    #musicBtn {
+      padding: 13px 25px;
+      border: none;
+      border-radius: 30px;
+      background: #00eaff;
+      color: #001018;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    section {
-      padding: 90px 7%;
-    }
-
-    .section-title {
-      font-size: 38px;
-      margin-bottom: 12px;
-    }
-
-    .section-title span {
-      color: #00d4ff;
-    }
-
-    .section-subtitle {
-      color: #8e9bb0;
-      margin-bottom: 40px;
-    }
-
-    .about {
-      max-width: 900px;
-      color: #b8c3d3;
-      font-size: 17px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      padding: 28px;
-      border-radius: 22px;
-      background: rgba(255,255,255,.045);
-      border: 1px solid rgba(255,255,255,.09);
-      transition: .3s;
-    }
-
-    .card:hover {
-      transform: translateY(-7px);
-      border-color: rgba(0,212,255,.4);
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      color: #fff;
-    }
-
-    .card p {
-      color: #9eabbf;
-      font-size: 14px;
-    }
-
-    .contact-box {
-      max-width: 800px;
-      padding: 35px;
-      border-radius: 24px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.1);
-    }
-
-    .contact-box a {
-      color: #00d4ff;
-      text-decoration: none;
-    }
-
-    .socials {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 22px;
-    }
-
-    .socials a {
-      padding: 10px 17px;
-      border-radius: 25px;
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.1);
+    #musicBtn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00eaff;
     }
 
     footer {
       text-align: center;
-      padding: 35px 20px;
-      color: #718096;
-      border-top: 1px solid rgba(255,255,255,.08);
-      font-size: 13px;
+      padding: 30px;
+      background: #030308;
+      color: #888;
     }
 
-    @media (max-width: 800px) {
-      nav ul { display: none; }
+    @media (max-width: 600px) {
 
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
+      .hero h1 {
+        font-size: 36px;
       }
 
-      .hero p {
-        margin-left: auto;
-        margin-right: auto;
+      .hero h2 {
+        font-size: 20px;
       }
 
-      .buttons {
-        justify-content: center;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .photo-wrap {
-        order: -1;
+      nav a {
+        margin: 0 5px;
+        font-size: 14px;
       }
 
       .countdown {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .time-box span {
+        font-size: 25px;
+      }
     }
   </style>
-
 </head>
 
 <body>
 
+  <!-- NAVIGATION -->
+
   <nav>
-    <div class="logo">Roshish<span>.</span></div>
-
-```
-<ul>
-  <li><a href="#home">Home</a></li>
-  <li><a href="#about">About</a></li>
-  <li><a href="#skills">Skills</a></li>
-  <li><a href="#projects">Projects</a></li>
-  <li><a href="#contact">Contact</a></li>
-</ul>
-```
-
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-  <main>
 
-```
-<section class="hero" id="home">
+  <!-- HOME -->
 
-  <div>
+  <div class="hero" id="home">
 
-    <div class="small">Creator & Developer</div>
+    <!-- Your photo -->
+    <img src="profile.jpg" alt="Roshish Nepal" class="profile">
 
-    <h1>Hi, I'm <span>Roshish Nepal</span></h1>
+    <h1>Roshish Nepal</h1>
+
+    <h2>Creator & Developer</h2>
 
     <p>
-      I create digital experiences, websites and creative projects.
-      Welcome to my personal space on the web.
+      Welcome to my personal website.
+      I create, develop and explore new ideas through technology and creativity.
     </p>
 
-    <!-- DASHHAIN COUNTDOWN -->
+
+    <!-- DASHain COUNTDOWN -->
 
     <div class="dashain-box">
 
-      <div class="dashain-title">
-        🪔 दशैं आउन अब...
-      </div>
+      <h2>🪔 दशैं आउन अब...</h2>
 
       <div class="dashain-date">
-        विजयादशमी / टीका — २१ अक्टोबर २०२६
+        शुभ विजयादशमी २०८३ 🎉<br>
+        Vijayadashami / Tika — 21 October 2026
       </div>
 
       <div class="countdown">
 
         <div class="time-box">
-          <strong id="days">00</strong>
-          <span>Days</span>
+          <span id="days">0</span>
+          <small>Days</small>
         </div>
 
         <div class="time-box">
-          <strong id="hours">00</strong>
-          <span>Hours</span>
+          <span id="hours">0</span>
+          <small>Hours</small>
         </div>
 
         <div class="time-box">
-          <strong id="minutes">00</strong>
-          <span>Minutes</span>
+          <span id="minutes">0</span>
+          <small>Minutes</small>
         </div>
 
         <div class="time-box">
-          <strong id="seconds">00</strong>
-          <span>Seconds</span>
-        </div>
-
-      </div>
-
-      <!-- LIVE NEPALI DATE AND TIME -->
-
-      <div class="nepali-clock">
-
-        <div class="live-label">
-          🔴 LIVE NEPAL TIME
-        </div>
-
-        <div id="nepaliDate">
-          नेपाली मिति लोड हुँदैछ...
-        </div>
-
-        <div id="nepaliTime">
-          00:00:00
+          <span id="seconds">0</span>
+          <small>Seconds</small>
         </div>
 
       </div>
 
     </div>
 
-    <div class="buttons" style="margin-top:25px;">
-      <a class="btn primary" href="#projects">View My Work</a>
-      <a class="btn secondary" href="#contact">Contact Me</a>
+
+    <!-- NEPAL TIME -->
+
+    <div class="clock-box">
+
+      <div class="clock-title">
+        🔴 LIVE NEPAL TIME
+      </div>
+
+      <div id="nepaliDate">
+        Loading Nepali Date...
+      </div>
+
+      <div id="nepaliTime">
+        Loading...
+      </div>
+
     </div>
 
-  </div>
 
-  <div class="photo-wrap">
-    <img class="profile" src="profile.jpg" alt="Roshish Nepal">
-  </div>
+    <!-- MANGAL DHUN -->
 
-</section>
+    <div class="music-box">
 
-<section id="about">
+      <h2>🪔 Dashain Mangal Dhun</h2>
 
-  <h2 class="section-title">
-    About <span>Me</span>
-  </h2>
-
-  <p class="section-subtitle">
-    A little introduction
-  </p>
-
-  <p class="about">
-    I'm Roshish Nepal, a creator and developer interested in building
-    websites and exploring creative digital ideas. This website is a
-    place to showcase my work, skills and projects.
-  </p>
-
-</section>
-
-<section id="skills">
-
-  <h2 class="section-title">
-    My <span>Skills</span>
-  </h2>
-
-  <p class="section-subtitle">
-    Things I enjoy working with
-  </p>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>🌐 Web Development</h3>
       <p>
-        Creating responsive and modern websites using HTML, CSS and JavaScript.
+        Listen to Mangal Dhun while visiting my Dashain special website.
       </p>
-    </div>
 
-    <div class="card">
-      <h3>🎨 Creative Design</h3>
-      <p>
-        Designing clean layouts, visual concepts and digital experiences.
-      </p>
-    </div>
+      <audio id="mangalDhun" src="mangal-dhun.mp3"></audio>
 
-    <div class="card">
-      <h3>💡 Creative Projects</h3>
-      <p>
-        Turning ideas into useful and interesting digital projects.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-<section id="projects">
-
-  <h2 class="section-title">
-    My <span>Projects</span>
-  </h2>
-
-  <p class="section-subtitle">
-    Projects will appear here
-  </p>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>Personal Website</h3>
-      <p>
-        A modern personal portfolio website built with HTML and CSS.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Creative Projects</h3>
-      <p>
-        More creative and digital projects can be added here later.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Coming Soon</h3>
-      <p>
-        New projects and experiments will be added here.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-<section id="contact">
-
-  <h2 class="section-title">
-    Let's <span>Connect</span>
-  </h2>
-
-  <p class="section-subtitle">
-    Get in touch
-  </p>
-
-  <div class="contact-box">
-
-    <p>
-      Email:
-      <a href="mailto:roshishnepal73@gmail.com">
-        roshishnepal73@gmail.com
-      </a>
-    </p>
-
-    <div class="socials">
-
-      <a href="#" target="_blank">Instagram</a>
-      <a href="#" target="_blank">Facebook</a>
-      <a href="#" target="_blank">TikTok</a>
-      <a href="#" target="_blank">GitHub</a>
+      <button id="musicBtn" onclick="toggleMusic()">
+        🔊 Play Mangal Dhun
+      </button>
 
     </div>
 
   </div>
 
-</section>
-```
 
-  </main>
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h2>About Me</h2>
+
+    <div class="card">
+
+      <p>
+        Hello! I am Roshish Nepal, a creator and developer.
+        I enjoy creating websites, learning technology and working
+        on creative projects.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2>My Skills</h2>
+
+    <div class="skills">
+
+      <div class="skill">
+        💻 Web Development
+      </div>
+
+      <div class="skill">
+        🎨 Creative Design
+      </div>
+
+      <div class="skill">
+        🚀 Project Development
+      </div>
+
+      <div class="skill">
+        💡 Creative Ideas
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2>My Projects</h2>
+
+    <div class="card">
+
+      <h3>🌐 Personal Website</h3>
+
+      <p>
+        My personal creator and developer portfolio website.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>🪔 Dashain Special Website</h3>
+
+      <p>
+        A special Dashain-themed website with countdown,
+        Nepal time and Mangal Dhun.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <h2>Contact Me</h2>
+
+    <div class="card">
+
+      <p>
+        📧 Email:
+        <a
+          href="mailto:roshishnepal73@gmail.com"
+          style="color:#00eaff;"
+        >
+          roshishnepal73@gmail.com
+        </a>
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
 
   <footer>
-    © 2026 Roshish Nepal · Creator & Developer
+
+    © 2026 Roshish Nepal — Creator & Developer
+
   </footer>
+
 
   <!-- JAVASCRIPT -->
 
   <script>
 
-    /* ==============================
-       DASHHAIN COUNTDOWN
-       ============================== */
+    /* =========================
+       DASHain COUNTDOWN
+       ========================= */
 
-    // Vijayadashami: October 21, 2026
-    const dashainDate = new Date("2026-10-21T00:00:00+05:45").getTime();
+    const dashainDate =
+      new Date("2026-10-21T00:00:00+05:45").getTime();
 
     function updateCountdown() {
 
@@ -645,98 +504,129 @@
 
       if (difference <= 0) {
 
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
-
-        document.querySelector(".dashain-title").textContent =
-          "🎉 शुभ विजयादशमी!";
+        document.getElementById("days").innerHTML = "0";
+        document.getElementById("hours").innerHTML = "0";
+        document.getElementById("minutes").innerHTML = "0";
+        document.getElementById("seconds").innerHTML = "0";
 
         return;
       }
 
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const days =
+        Math.floor(difference / (1000 * 60 * 60 * 24));
 
-      const hours = Math.floor(
-        (difference / (1000 * 60 * 60)) % 24
-      );
+      const hours =
+        Math.floor(
+          (difference % (1000 * 60 * 60 * 24))
+          / (1000 * 60 * 60)
+        );
 
-      const minutes = Math.floor(
-        (difference / (1000 * 60)) % 60
-      );
+      const minutes =
+        Math.floor(
+          (difference % (1000 * 60 * 60))
+          / (1000 * 60)
+        );
 
-      const seconds = Math.floor(
-        (difference / 1000) % 60
-      );
+      const seconds =
+        Math.floor(
+          (difference % (1000 * 60))
+          / 1000
+        );
 
-      document.getElementById("days").textContent =
-        String(days).padStart(2, "0");
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
 
-      document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
-
-      document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
-
-      document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
     }
 
+    updateCountdown();
 
-    /* ==============================
-       LIVE NEPAL TIME
-       ============================== */
+    setInterval(updateCountdown, 1000);
+
+
+    /* =========================
+       NEPAL DATE & TIME
+       ========================= */
 
     function updateNepalTime() {
 
       const now = new Date();
 
-      // Nepal Time = UTC + 5:45
-      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const nepalDate =
+        new Date(
+          now.toLocaleString("en-US", {
+            timeZone: "Asia/Kathmandu"
+          })
+        );
 
-      const nepalTime = new Date(utc + (5.75 * 60 * 60 * 1000));
+      const time =
+        nepalDate.toLocaleTimeString("en-NP", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: true
+        });
 
-
-      const time = nepalTime.toLocaleTimeString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: true
-      });
-
-      document.getElementById("nepaliTime").textContent = time;
-
-
-      /*
-        नेपाली मिति देखाउन browser को Nepali
-        calendar conversion प्रयोग गरिएको छ।
-      */
-
-      const nepaliDate = new Intl.DateTimeFormat(
-        "ne-NP-u-ca-bikram-sambat",
-        {
+      const date =
+        nepalDate.toLocaleDateString("en-NP", {
+          weekday: "long",
           year: "numeric",
           month: "long",
-          day: "numeric",
-          weekday: "long"
-        }
-      ).format(nepalTime);
+          day: "numeric"
+        });
 
-      document.getElementById("nepaliDate").textContent =
-        "📅 " + nepaliDate;
+      document.getElementById("nepaliDate").innerHTML =
+        "🇳🇵 " + date;
+
+      document.getElementById("nepaliTime").innerHTML =
+        time;
+
+    }
+
+    updateNepalTime();
+
+    setInterval(updateNepalTime, 1000);
+
+
+    /* =========================
+       MANGAL DHUN
+       ========================= */
+
+    const music =
+      document.getElementById("mangalDhun");
+
+    const musicBtn =
+      document.getElementById("musicBtn");
+
+
+    function toggleMusic() {
+
+      if (music.paused) {
+
+        music.play();
+
+        musicBtn.innerHTML =
+          "⏸️ Pause Mangal Dhun";
+
+      } else {
+
+        music.pause();
+
+        musicBtn.innerHTML =
+          "🔊 Play Mangal Dhun";
+
+      }
+
     }
 
 
-    /* ==============================
-       START
-       ============================== */
+    music.addEventListener("ended", function () {
 
-    updateCountdown();
-    updateNepalTime();
+      musicBtn.innerHTML =
+        "🔊 Play Mangal Dhun";
 
-    setInterval(updateCountdown, 1000);
-    setInterval(updateNepalTime, 1000);
+    });
 
   </script>
 
