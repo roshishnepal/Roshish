@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,21 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Roshish Nepal | Creator & Developer</title>
-
-<meta name="description" content="Roshish Nepal — Creator & Developer. Explore my projects, skills and creative work.">
+<meta name="description" content="Roshish Nepal - Creator & Developer">
 
 <style>
-/* =====================================================
-   RESET
-===================================================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
-
 :root{
     --bg:#050509;
     --bg2:#0a0a12;
@@ -31,83 +18,65 @@
     --cyan:#00e5ff;
     --purple:#8b5cf6;
     --gold:#ffd166;
+    --green:#22c55e;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
 body{
-    font-family:Inter,Arial,Helvetica,sans-serif;
-    background:var(--bg);
+    font-family:Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top left,rgba(0,229,255,.08),transparent 35%),
+        radial-gradient(circle at bottom right,rgba(139,92,246,.10),transparent 35%),
+        var(--bg);
     color:var(--text);
     line-height:1.6;
     overflow-x:hidden;
 }
 
-/* =====================================================
-   BACKGROUND
-===================================================== */
+/* BACKGROUND GRID */
 
 body::before{
     content:"";
-    position:fixed;
-    width:600px;
-    height:600px;
-    top:-250px;
-    left:-200px;
-    background:rgba(0,229,255,.08);
-    filter:blur(120px);
-    border-radius:50%;
-    pointer-events:none;
-    z-index:-2;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    width:600px;
-    height:600px;
-    right:-250px;
-    bottom:-250px;
-    background:rgba(139,92,246,.10);
-    filter:blur(120px);
-    border-radius:50%;
-    pointer-events:none;
-    z-index:-2;
-}
-
-.grid-bg{
     position:fixed;
     inset:0;
     background-image:
         linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
         linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-    background-size:55px 55px;
-    mask-image:linear-gradient(to bottom,black,transparent);
+    background-size:50px 50px;
     pointer-events:none;
-    z-index:-3;
+    z-index:-1;
 }
 
-/* =====================================================
-   NAVBAR
-===================================================== */
+/* NAVBAR */
 
-.navbar{
-    position:fixed;
+nav{
+    position:sticky;
     top:0;
-    left:0;
-    width:100%;
-    z-index:999;
-    padding:18px 7%;
+    z-index:1000;
+    backdrop-filter:blur(18px);
+    background:rgba(5,5,9,.75);
+    border-bottom:1px solid var(--border);
+}
+
+.nav-container{
+    max-width:1150px;
+    margin:auto;
+    padding:18px 25px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(5,5,9,.72);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(255,255,255,.07);
 }
 
 .logo{
     font-size:22px;
-    font-weight:800;
-    letter-spacing:-.5px;
+    font-weight:900;
+    color:white;
 }
 
 .logo span{
@@ -116,15 +85,14 @@ body::after{
 
 .nav-links{
     display:flex;
-    gap:30px;
+    gap:25px;
     list-style:none;
 }
 
 .nav-links a{
-    color:#d5d7dc;
+    color:var(--muted);
     text-decoration:none;
     font-size:14px;
-    font-weight:600;
     transition:.3s;
 }
 
@@ -132,397 +100,267 @@ body::after{
     color:var(--cyan);
 }
 
-.nav-button{
-    text-decoration:none;
-    color:#001014;
-    background:var(--cyan);
-    padding:10px 18px;
-    border-radius:25px;
-    font-size:13px;
-    font-weight:800;
-    transition:.3s;
+/* GENERAL */
+
+.container{
+    max-width:1150px;
+    margin:auto;
+    padding:0 25px;
 }
 
-.nav-button:hover{
-    transform:translateY(-2px);
-    box-shadow:0 8px 30px rgba(0,229,255,.25);
+section{
+    padding:90px 0;
 }
 
-/* =====================================================
-   HERO
-===================================================== */
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:var(--muted);
+}
+
+/* HERO */
 
 .hero{
-    min-height:100vh;
-    max-width:1200px;
-    margin:auto;
-    padding:150px 7% 80px;
-    display:grid;
-    grid-template-columns:1.15fr .85fr;
+    min-height:90vh;
+    display:flex;
     align-items:center;
-    gap:70px;
 }
 
-.hero-content{
-    animation:fadeUp 1s ease forwards;
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:60px;
+    align-items:center;
 }
 
 .badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
+    display:inline-block;
     padding:8px 14px;
-    border:1px solid rgba(0,229,255,.2);
-    background:rgba(0,229,255,.05);
+    border:1px solid rgba(0,229,255,.25);
     border-radius:30px;
-    color:#b8f7ff;
+    background:rgba(0,229,255,.06);
+    color:var(--cyan);
     font-size:13px;
-    font-weight:700;
-    margin-bottom:22px;
-}
-
-.badge-dot{
-    width:8px;
-    height:8px;
-    background:#36e27b;
-    border-radius:50%;
-    box-shadow:0 0 10px #36e27b;
+    margin-bottom:20px;
 }
 
 .hero h1{
-    font-size:clamp(48px,7vw,82px);
-    line-height:1.02;
-    letter-spacing:-4px;
-    margin-bottom:18px;
+    font-size:64px;
+    line-height:1.1;
+    margin-bottom:0;
 }
 
 .gradient-text{
-    background:linear-gradient(90deg,var(--cyan),#ffffff,var(--purple));
+    background:linear-gradient(90deg,var(--cyan),var(--purple));
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
 }
 
+/* DASHAIN UNDER NAME */
+
+.hero-dashain{
+    margin:10px 0 10px;
+    font-size:20px;
+    font-weight:800;
+    color:var(--gold);
+    text-shadow:0 0 15px rgba(255,209,102,.35);
+}
+
 .hero h2{
-    font-size:24px;
-    color:#c8cbd3;
-    font-weight:500;
-    margin-bottom:18px;
+    font-size:25px;
+    color:var(--muted);
+    margin-bottom:20px;
 }
 
 .hero p{
-    max-width:650px;
     color:var(--muted);
+    max-width:650px;
     font-size:17px;
-    line-height:1.8;
 }
 
-.hero-actions{
+.hero-buttons{
     display:flex;
+    gap:15px;
+    margin-top:30px;
     flex-wrap:wrap;
-    gap:13px;
-    margin-top:32px;
 }
 
 .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
     padding:13px 22px;
     border-radius:12px;
     text-decoration:none;
-    font-weight:800;
-    font-size:14px;
+    font-weight:700;
+    display:inline-block;
     transition:.3s;
 }
 
 .btn-primary{
-    background:var(--cyan);
-    color:#001014;
+    background:linear-gradient(90deg,var(--cyan),var(--purple));
+    color:white;
 }
 
 .btn-secondary{
-    color:white;
     border:1px solid var(--border);
-    background:rgba(255,255,255,.04);
+    color:white;
+    background:var(--card);
 }
 
 .btn:hover{
     transform:translateY(-3px);
 }
 
-.btn-primary:hover{
-    box-shadow:0 12px 35px rgba(0,229,255,.22);
-}
-
-.btn-secondary:hover{
-    border-color:rgba(0,229,255,.4);
-}
-
-/* =====================================================
-   PROFILE CARD
-===================================================== */
-
-.profile-wrapper{
-    display:flex;
-    justify-content:center;
-    animation:fadeUp 1s .2s ease both;
-}
-
 .profile-card{
-    width:330px;
-    padding:14px;
+    background:var(--card);
     border:1px solid var(--border);
-    background:rgba(255,255,255,.04);
-    backdrop-filter:blur(20px);
-    border-radius:28px;
-    transform:rotate(2deg);
-    box-shadow:0 30px 80px rgba(0,0,0,.35);
-    transition:.5s;
+    border-radius:30px;
+    padding:25px;
+    text-align:center;
+    backdrop-filter:blur(15px);
+    box-shadow:0 25px 70px rgba(0,0,0,.35);
 }
 
-.profile-card:hover{
-    transform:rotate(0deg) translateY(-8px);
-}
-
-.profile-image{
-    width:100%;
-    aspect-ratio:1;
+.profile-card img{
+    width:280px;
+    height:280px;
     object-fit:cover;
-    border-radius:20px;
-    display:block;
+    border-radius:25px;
+    border:2px solid rgba(0,229,255,.25);
 }
 
-.profile-info{
-    padding:18px 10px 8px;
+.profile-card h3{
+    margin-top:20px;
+    font-size:25px;
 }
 
-.profile-info strong{
-    display:block;
-    font-size:20px;
-}
-
-.profile-info span{
+.profile-card p{
     color:var(--muted);
-    font-size:13px;
 }
 
-/* =====================================================
-   STATS
-===================================================== */
+/* STATS */
 
 .stats{
-    max-width:1200px;
-    margin:-20px auto 0;
-    padding:0 7%;
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:15px;
+    gap:20px;
+    margin-top:50px;
 }
 
 .stat{
-    padding:22px;
-    border:1px solid var(--border);
-    border-radius:16px;
+    padding:25px;
     background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
     text-align:center;
 }
 
-.stat strong{
-    display:block;
-    font-size:25px;
+.stat h3{
+    font-size:30px;
     color:var(--cyan);
 }
 
-.stat span{
-    color:var(--muted);
-    font-size:13px;
-}
-
-/* =====================================================
-   COMMON SECTIONS
-===================================================== */
-
-section{
-    max-width:1200px;
-    margin:auto;
-    padding:110px 7%;
-}
-
-.section-label{
-    color:var(--cyan);
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    margin-bottom:10px;
-}
-
-.section-title{
-    font-size:42px;
-    letter-spacing:-1.5px;
-    margin-bottom:15px;
-}
-
-.section-description{
-    color:var(--muted);
-    max-width:650px;
-    margin-bottom:40px;
-}
-
-/* =====================================================
-   ABOUT
-===================================================== */
-
-.about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-}
-
-.glass-card{
-    padding:30px;
-    border:1px solid var(--border);
-    background:var(--card);
-    border-radius:22px;
-    backdrop-filter:blur(15px);
-}
-
-.glass-card p{
-    color:#aeb3bd;
-}
-
-.about-points{
-    display:grid;
-    gap:15px;
-}
-
-.about-point{
-    padding:18px;
-    border-radius:15px;
-    background:rgba(255,255,255,.035);
-    border:1px solid rgba(255,255,255,.06);
-}
-
-.about-point strong{
-    display:block;
-    margin-bottom:4px;
-}
-
-.about-point span{
+.stat p{
     color:var(--muted);
     font-size:14px;
 }
 
-/* =====================================================
-   SKILLS
-===================================================== */
+/* ABOUT */
 
-.skills-grid{
+.about-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:20px;
+    gap:30px;
 }
 
-.skill-card{
-    padding:25px;
-    border:1px solid var(--border);
-    border-radius:18px;
+.card{
     background:var(--card);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:30px;
+    backdrop-filter:blur(15px);
+}
+
+.card h3{
+    margin-bottom:15px;
+    font-size:23px;
+}
+
+.card p{
+    color:var(--muted);
+}
+
+/* SKILLS */
+
+.skills{
+    display:grid;
+    gap:22px;
+}
+
+.skill{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:22px;
+    border-radius:18px;
 }
 
 .skill-top{
     display:flex;
     justify-content:space-between;
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
-.skill-top strong{
-    font-size:15px;
-}
-
-.skill-top span{
+.skill-top span:last-child{
     color:var(--cyan);
-    font-size:13px;
 }
 
-.progress{
-    height:7px;
-    background:#181820;
-    border-radius:10px;
+.skill-bar{
+    height:9px;
+    background:rgba(255,255,255,.08);
+    border-radius:20px;
     overflow:hidden;
 }
 
-.progress-bar{
+.skill-fill{
     height:100%;
-    width:0;
-    border-radius:10px;
+    border-radius:20px;
     background:linear-gradient(90deg,var(--cyan),var(--purple));
-    animation:progress 1.5s ease forwards;
 }
 
-.p95{--width:95%}
-.p90{--width:90%}
-.p85{--width:85%}
-.p80{--width:80%}
-
-@keyframes progress{
-    to{width:var(--width)}
-}
-
-/* =====================================================
-   PROJECTS
-===================================================== */
+/* PROJECTS */
 
 .projects{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    gap:22px;
 }
 
 .project{
-    padding:28px;
-    min-height:250px;
+    background:var(--card);
     border:1px solid var(--border);
-    background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+    padding:28px;
     border-radius:22px;
-    transition:.35s;
-    position:relative;
-    overflow:hidden;
-}
-
-.project::after{
-    content:"";
-    position:absolute;
-    width:150px;
-    height:150px;
-    right:-80px;
-    bottom:-80px;
-    background:var(--cyan);
-    filter:blur(80px);
-    opacity:.12;
+    transition:.3s;
 }
 
 .project:hover{
-    transform:translateY(-8px);
+    transform:translateY(-7px);
     border-color:rgba(0,229,255,.3);
 }
 
 .project-icon{
-    width:52px;
-    height:52px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:14px;
-    background:rgba(0,229,255,.08);
-    font-size:25px;
-    margin-bottom:22px;
+    font-size:38px;
+    margin-bottom:15px;
 }
 
 .project h3{
-    font-size:20px;
     margin-bottom:10px;
 }
 
@@ -531,156 +369,121 @@ section{
     font-size:14px;
 }
 
-.project-tag{
-    display:inline-block;
-    margin-top:20px;
-    padding:5px 10px;
-    border-radius:20px;
-    background:rgba(255,255,255,.06);
-    color:#bbb;
-    font-size:11px;
-}
+/* DASHAIN SECTION */
 
-/* =====================================================
-   DASHAIN
-===================================================== */
-
-.dashain-section{
-    position:relative;
-}
-
-.dashain-card{
-    padding:45px;
-    border-radius:28px;
-    border:1px solid rgba(255,209,102,.25);
-    background:
-        radial-gradient(circle at 20% 20%,rgba(255,209,102,.10),transparent 30%),
-        linear-gradient(135deg,#15101c,#0b0b14);
+.dashain-box{
     text-align:center;
-    overflow:hidden;
+    padding:60px 30px;
+    border-radius:30px;
+    background:
+        radial-gradient(circle at center,rgba(255,209,102,.10),transparent 55%),
+        var(--card);
+    border:1px solid rgba(255,209,102,.18);
 }
 
-.dashain-icon{
-    font-size:45px;
-    margin-bottom:10px;
-}
-
-.dashain-card h2{
+.dashain-box h2{
+    font-size:42px;
     color:var(--gold);
-    font-size:34px;
-}
-
-.dashain-card>p{
-    color:#aaa;
-    margin:8px 0 28px;
 }
 
 .countdown{
-    max-width:750px;
-    margin:auto;
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:14px;
+    gap:15px;
+    margin-top:35px;
 }
 
 .count-box{
-    padding:22px 10px;
-    background:rgba(0,0,0,.28);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:16px;
+    padding:20px;
+    border-radius:18px;
+    background:rgba(255,255,255,.05);
+    border:1px solid var(--border);
 }
 
 .count-box strong{
     display:block;
+    font-size:32px;
     color:var(--gold);
-    font-size:34px;
 }
 
 .count-box span{
-    color:#888;
+    color:var(--muted);
     font-size:12px;
 }
 
-/* =====================================================
-   CLOCK + MUSIC
-===================================================== */
+/* TOOLS */
 
-.tools-grid{
-    margin-top:20px;
+.tools{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:20px;
+    gap:25px;
 }
 
 .tool-card{
-    padding:25px;
-    border:1px solid var(--border);
-    border-radius:20px;
     background:var(--card);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:30px;
+    text-align:center;
 }
 
-.tool-title{
-    color:var(--cyan);
-    font-weight:800;
-    margin-bottom:10px;
+.tool-card h3{
+    margin-bottom:15px;
 }
 
-.live-time{
-    font-size:30px;
-    font-weight:800;
-    margin-top:4px;
+/* NEPALI DATE */
+
+.nepali-date{
+    font-size:26px;
+    font-weight:900;
+    color:#fff;
+    margin-top:12px;
+    margin-bottom:3px;
 }
 
-.live-date{
+.english-date{
+    font-size:13px;
     color:var(--muted);
+    margin-bottom:8px;
 }
 
-.music-player{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
+.nepal-time{
+    font-size:34px;
+    font-weight:900;
+    color:var(--cyan);
+    margin:5px 0;
 }
 
-.music-info strong{
-    display:block;
-}
-
-.music-info span{
+.date-text{
     color:var(--muted);
     font-size:13px;
 }
 
-.music-btn{
-    border:0;
-    width:48px;
-    height:48px;
-    border-radius:50%;
-    background:var(--cyan);
-    color:#001014;
-    font-size:18px;
+/* MUSIC */
+
+.music-button{
+    border:none;
+    padding:14px 24px;
+    border-radius:12px;
+    background:linear-gradient(90deg,var(--cyan),var(--purple));
+    color:white;
+    font-weight:800;
     cursor:pointer;
-    flex-shrink:0;
+    margin-top:15px;
 }
 
-/* =====================================================
-   CONTACT
-===================================================== */
+.music-status{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:10px;
+}
+
+/* CONTACT */
 
 .contact-box{
-    padding:50px;
     text-align:center;
-    border-radius:28px;
-    border:1px solid rgba(0,229,255,.15);
-    background:
-        linear-gradient(135deg,
-        rgba(0,229,255,.06),
-        rgba(139,92,246,.06));
-}
-
-.contact-box h2{
-    font-size:38px;
-    margin-bottom:10px;
+    max-width:750px;
+    margin:auto;
 }
 
 .contact-box p{
@@ -689,116 +492,98 @@ section{
 }
 
 .email{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:14px 22px;
-    border:1px solid rgba(0,229,255,.3);
-    border-radius:12px;
     color:var(--cyan);
-    text-decoration:none;
     font-weight:700;
-    transition:.3s;
+    text-decoration:none;
 }
 
-.email:hover{
-    background:rgba(0,229,255,.08);
-    transform:translateY(-3px);
-}
-
-/* =====================================================
-   FOOTER
-===================================================== */
+/* FOOTER */
 
 footer{
-    padding:35px 7%;
+    border-top:1px solid var(--border);
+    padding:30px 20px;
     text-align:center;
-    color:#666;
-    border-top:1px solid rgba(255,255,255,.06);
+    color:var(--muted);
+    font-size:14px;
 }
 
-footer strong{
-    color:#aaa;
-}
-
-/* =====================================================
-   SCROLL TOP
-===================================================== */
+/* TOP BUTTON */
 
 #topBtn{
     position:fixed;
-    right:25px;
-    bottom:25px;
+    right:20px;
+    bottom:20px;
     width:45px;
     height:45px;
-    border:1px solid rgba(0,229,255,.25);
+    border:none;
     border-radius:50%;
-    background:rgba(5,5,9,.85);
-    color:var(--cyan);
+    background:linear-gradient(135deg,var(--cyan),var(--purple));
+    color:white;
+    font-size:20px;
     cursor:pointer;
     display:none;
-    z-index:900;
+    z-index:999;
 }
 
-/* =====================================================
-   ANIMATIONS
-===================================================== */
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-/* =====================================================
-   MOBILE
-===================================================== */
+/* RESPONSIVE */
 
 @media(max-width:850px){
 
-    .navbar{
-        padding:15px 5%;
+    .hero-grid,
+    .about-grid,
+    .tools{
+        grid-template-columns:1fr;
     }
 
-    .nav-links{
-        display:none;
+    .projects{
+        grid-template-columns:1fr 1fr;
     }
 
     .hero{
-        grid-template-columns:1fr;
         text-align:center;
-        padding-top:130px;
     }
 
     .hero p{
         margin:auto;
     }
 
-    .hero-actions{
+    .hero-buttons{
         justify-content:center;
     }
 
-    .profile-wrapper{
-        order:-1;
+    .hero h1{
+        font-size:45px;
+    }
+}
+
+@media(max-width:600px){
+
+    .nav-links{
+        display:none;
     }
 
-    .profile-card{
-        width:260px;
+    .nav-container{
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero h2{
+        font-size:20px;
+    }
+
+    .hero-dashain{
+        font-size:17px;
+    }
+
+    .profile-card img{
+        width:220px;
+        height:220px;
     }
 
     .stats{
-        grid-template-columns:1fr;
-        margin-top:0;
-    }
-
-    .about-grid,
-    .skills-grid,
-    .tools-grid{
         grid-template-columns:1fr;
     }
 
@@ -807,62 +592,28 @@ footer strong{
     }
 
     .countdown{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:1fr 1fr;
+    }
+
+    .dashain-box h2{
+        font-size:29px;
     }
 
     section{
-        padding:80px 5%;
-    }
-
-    .section-title{
-        font-size:34px;
-    }
-
-    .contact-box{
-        padding:35px 20px;
-    }
-
-    .contact-box h2{
-        font-size:30px;
-    }
-}
-
-@media(max-width:450px){
-
-    .hero h1{
-        letter-spacing:-2px;
-    }
-
-    .profile-card{
-        width:220px;
-    }
-
-    .dashain-card{
-        padding:30px 15px;
-    }
-
-    .count-box strong{
-        font-size:27px;
-    }
-
-    .email{
-        font-size:13px;
+        padding:65px 0;
     }
 }
 </style>
 </head>
 
-
 <body>
 
-<div class="grid-bg"></div>
-
-
-<!-- =====================================================
+<!-- =========================
      NAVBAR
-===================================================== -->
+========================= -->
 
-<header class="navbar">
+<nav>
+<div class="nav-container">
 
     <div class="logo">
         Roshish<span>.</span>
@@ -874,557 +625,519 @@ footer strong{
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#dashain">Dashain</a></li>
+        <li><a href="#contact">Let's Talk</a></li>
     </ul>
 
-    <a href="#contact" class="nav-button">
-        Let's Talk
-    </a>
-
-</header>
+</div>
+</nav>
 
 
-<!-- =====================================================
+<!-- =========================
      HERO
-===================================================== -->
+========================= -->
 
-<main id="home">
+<section class="hero" id="home">
 
-<section class="hero">
+<div class="container">
 
-    <div class="hero-content">
+<div class="hero-grid">
 
-        <div class="badge">
-            <span class="badge-dot"></span>
-            Available for creative projects
-        </div>
+<div>
 
-        <h1>
-            Hi, I'm
-            <span class="gradient-text">
-                Roshish Nepal
-            </span>
-        </h1>
-
-        <h2>
-            Creator & Developer
-        </h2>
-
-        <p>
-            I create digital experiences, build websites,
-            explore technology and turn creative ideas
-            into meaningful projects.
-        </p>
-
-        <div class="hero-actions">
-
-            <a href="#projects" class="btn btn-primary">
-                🚀 Explore Projects
-            </a>
-
-            <a href="#contact" class="btn btn-secondary">
-                📩 Get In Touch
-            </a>
-
-        </div>
-
+    <div class="badge">
+        ✨ Available for creative projects
     </div>
 
+    <h1>
+        Hi, I'm
+        <span class="gradient-text">
+            Roshish Nepal
+        </span>
+    </h1>
 
-    <div class="profile-wrapper">
+    <!-- DASHain UNDER NAME -->
 
-        <div class="profile-card">
-
-            <img
-                src="profile.jpg"
-                alt="Roshish Nepal"
-                class="profile-image"
-            >
-
-            <div class="profile-info">
-
-                <strong>
-                    Roshish Nepal
-                </strong>
-
-                <span>
-                    Creator • Developer • Explorer
-                </span>
-
-            </div>
-
-        </div>
-
+    <div class="hero-dashain">
+        🪔 शुभ विजयादशमी २०८३ 🪔
     </div>
 
-</section>
+    <h2>
+        Creator & Developer
+    </h2>
 
+    <p>
+        I create modern websites, creative digital experiences
+        and interesting projects with technology and imagination.
+    </p>
 
-<!-- =====================================================
-     STATS
-===================================================== -->
+    <div class="hero-buttons">
 
-<div class="stats">
+        <a href="#projects" class="btn btn-primary">
+            View My Work
+        </a>
 
-    <div class="stat">
-        <strong>Creative</strong>
-        <span>Mindset</span>
-    </div>
+        <a href="#contact" class="btn btn-secondary">
+            Contact Me
+        </a>
 
-    <div class="stat">
-        <strong>Digital</strong>
-        <span>Projects</span>
-    </div>
-
-    <div class="stat">
-        <strong>Always</strong>
-        <span>Learning</span>
     </div>
 
 </div>
 
 
-<!-- =====================================================
+<div class="profile-card">
+
+    <img src="profile.jpg" alt="Roshish Nepal">
+
+    <h3>Roshish Nepal</h3>
+
+    <p>
+        Creator • Developer • Creative Mind
+    </p>
+
+</div>
+
+</div>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+    <h3>95%</h3>
+    <p>Web Development</p>
+</div>
+
+<div class="stat">
+    <h3>90%</h3>
+    <p>Creative Design</p>
+</div>
+
+<div class="stat">
+    <h3>∞</h3>
+    <p>Creative Ideas</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
      ABOUT
-===================================================== -->
+========================= -->
 
 <section id="about">
 
-    <div class="section-label">
-        About Me
-    </div>
+<div class="container">
 
-    <h2 class="section-title">
-        Building ideas with creativity.
-    </h2>
+<div class="section-title">
 
-    <p class="section-description">
-        A little introduction about who I am and what I enjoy creating.
+    <h2>About Me</h2>
+
+    <p>
+        A little introduction about me
     </p>
 
-    <div class="about-grid">
+</div>
 
-        <div class="glass-card">
 
-            <p>
-                Hello! I'm Roshish Nepal, a creator and developer
-                interested in technology, websites and creative
-                digital experiences.
-            </p>
+<div class="about-grid">
 
-            <br>
+<div class="card">
 
-            <p>
-                I enjoy learning new things, experimenting with
-                ideas and building projects that combine creativity
-                with technology.
-            </p>
+    <h3>👋 Who I Am</h3>
 
-        </div>
+    <p>
+        I'm Roshish Nepal, a creator and developer who enjoys
+        building websites, experimenting with technology and
+        turning creative ideas into digital projects.
+    </p>
 
-        <div class="about-points">
+</div>
 
-            <div class="about-point">
-                <strong>💻 Technology</strong>
-                <span>
-                    Exploring web development and digital tools.
-                </span>
-            </div>
 
-            <div class="about-point">
-                <strong>🎨 Creativity</strong>
-                <span>
-                    Turning ideas into attractive digital experiences.
-                </span>
-            </div>
+<div class="card">
 
-            <div class="about-point">
-                <strong>🚀 Growth</strong>
-                <span>
-                    Continuously learning and improving.
-                </span>
-            </div>
+    <h3>🚀 What I Do</h3>
 
-        </div>
+    <p>
+        I work on websites, creative designs, digital projects
+        and new ideas. My goal is to make things simple,
+        modern and enjoyable.
+    </p>
 
-    </div>
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      SKILLS
-===================================================== -->
+========================= -->
 
 <section id="skills">
 
-    <div class="section-label">
-        Skills
-    </div>
+<div class="container">
 
-    <h2 class="section-title">
-        What I work with.
-    </h2>
+<div class="section-title">
 
-    <p class="section-description">
-        A snapshot of my current creative and technical abilities.
+    <h2>My Skills</h2>
+
+    <p>
+        Things I enjoy working with
     </p>
 
-    <div class="skills-grid">
-
-        <div class="skill-card">
-
-            <div class="skill-top">
-                <strong>Web Development</strong>
-                <span>95%</span>
-            </div>
-
-            <div class="progress">
-                <div class="progress-bar p95"></div>
-            </div>
-
-        </div>
+</div>
 
 
-        <div class="skill-card">
+<div class="skills">
 
-            <div class="skill-top">
-                <strong>Creative Design</strong>
-                <span>90%</span>
-            </div>
+<div class="skill">
 
-            <div class="progress">
-                <div class="progress-bar p90"></div>
-            </div>
+<div class="skill-top">
+    <span>🌐 Web Development</span>
+    <span>95%</span>
+</div>
 
-        </div>
+<div class="skill-bar">
+    <div class="skill-fill" style="width:95%"></div>
+</div>
 
-
-        <div class="skill-card">
-
-            <div class="skill-top">
-                <strong>Project Development</strong>
-                <span>85%</span>
-            </div>
-
-            <div class="progress">
-                <div class="progress-bar p85"></div>
-            </div>
-
-        </div>
+</div>
 
 
-        <div class="skill-card">
+<div class="skill">
 
-            <div class="skill-top">
-                <strong>Creative Ideas</strong>
-                <span>80%</span>
-            </div>
+<div class="skill-top">
+    <span>🎨 Creative Design</span>
+    <span>90%</span>
+</div>
 
-            <div class="progress">
-                <div class="progress-bar p80"></div>
-            </div>
+<div class="skill-bar">
+    <div class="skill-fill" style="width:90%"></div>
+</div>
 
-        </div>
+</div>
 
-    </div>
+
+<div class="skill">
+
+<div class="skill-top">
+    <span>💡 Project Development</span>
+    <span>85%</span>
+</div>
+
+<div class="skill-bar">
+    <div class="skill-fill" style="width:85%"></div>
+</div>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-top">
+    <span>✨ Creative Ideas</span>
+    <span>80%</span>
+</div>
+
+<div class="skill-bar">
+    <div class="skill-fill" style="width:80%"></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      PROJECTS
-===================================================== -->
+========================= -->
 
 <section id="projects">
 
-    <div class="section-label">
-        Portfolio
-    </div>
+<div class="container">
 
-    <h2 class="section-title">
-        Selected Projects.
-    </h2>
+<div class="section-title">
 
-    <p class="section-description">
-        Some of the creative digital work featured on my portfolio.
+    <h2>My Projects</h2>
+
+    <p>
+        Some of my creative work
     </p>
 
-    <div class="projects">
-
-        <article class="project">
-
-            <div class="project-icon">
-                🌐
-            </div>
-
-            <h3>
-                Personal Portfolio
-            </h3>
-
-            <p>
-                A personal creator and developer website
-                designed to showcase my work, skills and ideas.
-            </p>
-
-            <span class="project-tag">
-                Web Development
-            </span>
-
-        </article>
+</div>
 
 
-        <article class="project">
-
-            <div class="project-icon">
-                🪔
-            </div>
-
-            <h3>
-                Dashain Special
-            </h3>
-
-            <p>
-                A festive digital experience featuring
-                a Dashain countdown, Nepal time and Mangal Dhun.
-            </p>
-
-            <span class="project-tag">
-                Creative Web
-            </span>
-
-        </article>
+<div class="projects">
 
 
-        <article class="project">
+<div class="project">
 
-            <div class="project-icon">
-                💡
-            </div>
+    <div class="project-icon">💻</div>
 
-            <h3>
-                Creative Experiments
-            </h3>
+    <h3>Personal Portfolio</h3>
 
-            <p>
-                A collection of ideas and experiments combining
-                creativity, design and technology.
-            </p>
+    <p>
+        A modern personal website showcasing my profile,
+        skills, projects and contact information.
+    </p>
 
-            <span class="project-tag">
-                Innovation
-            </span>
+</div>
 
-        </article>
 
-    </div>
+<div class="project">
+
+    <div class="project-icon">🪔</div>
+
+    <h3>Dashain Special</h3>
+
+    <p>
+        A special Nepal-themed Dashain experience with
+        Nepali date, countdown and festival design.
+    </p>
+
+</div>
+
+
+<div class="project">
+
+    <div class="project-icon">🚀</div>
+
+    <h3>Creative Experiments</h3>
+
+    <p>
+        Different creative ideas, web experiments and
+        digital projects built with curiosity.
+    </p>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      DASHAIN
-===================================================== -->
+========================= -->
 
-<section id="dashain" class="dashain-section">
+<section id="dashain">
 
-    <div class="section-label">
-        Festival Special
-    </div>
+<div class="container">
 
-    <h2 class="section-title">
-        Dashain 2083
+<div class="dashain-box">
+
+    <h2>
+        🪔 शुभ विजयादशमी २०८३ 🪔
     </h2>
 
-    <p class="section-description">
-        A special festive experience from my website.
+    <p style="color:var(--muted); margin-top:18px;">
+        Countdown to Vijayadashami 2083
     </p>
 
-    <div class="dashain-card">
 
-        <div class="dashain-icon">
-            🪔
+    <div class="countdown">
+
+        <div class="count-box">
+            <strong id="days">0</strong>
+            <span>Days</span>
         </div>
 
-        <h2>
-            शुभ विजयादशमी २०८३
-        </h2>
+        <div class="count-box">
+            <strong id="hours">0</strong>
+            <span>Hours</span>
+        </div>
 
-        <p>
-            Happy Dashain 2026 🇳🇵
-            <br>
-            विजयादशमी / टीका — २१ अक्टोबर २०२६
-        </p>
+        <div class="count-box">
+            <strong id="minutes">0</strong>
+            <span>Minutes</span>
+        </div>
 
-        <div class="countdown">
-
-            <div class="count-box">
-                <strong id="days">0</strong>
-                <span>Days</span>
-            </div>
-
-            <div class="count-box">
-                <strong id="hours">0</strong>
-                <span>Hours</span>
-            </div>
-
-            <div class="count-box">
-                <strong id="minutes">0</strong>
-                <span>Minutes</span>
-            </div>
-
-            <div class="count-box">
-                <strong id="seconds">0</strong>
-                <span>Seconds</span>
-            </div>
-
+        <div class="count-box">
+            <strong id="seconds">0</strong>
+            <span>Seconds</span>
         </div>
 
     </div>
 
+</div>
 
-    <!-- CLOCK + MUSIC -->
-
-    <div class="tools-grid">
-
-        <div class="tool-card">
-
-            <div class="tool-title">
-                🇳🇵 LIVE NEPAL TIME
-            </div>
-
-            <div
-                class="live-date"
-                id="nepalDate">
-                Loading...
-            </div>
-
-            <div
-                class="live-time"
-                id="nepalTime">
-                Loading...
-            </div>
-
-        </div>
-
-
-        <div class="tool-card">
-
-            <div class="tool-title">
-                🎵 MANGAL DHUN
-            </div>
-
-            <div class="music-player">
-
-                <div class="music-info">
-
-                    <strong>
-                        Dashain Mangal Dhun
-                    </strong>
-
-                    <span>
-                        Peaceful festive music
-                    </span>
-
-                </div>
-
-                <audio
-                    id="mangalDhun"
-                    src="mangal-dhun.mp3">
-                </audio>
-
-                <button
-                    class="music-btn"
-                    id="musicBtn"
-                    onclick="toggleMusic()">
-                    ▶
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
+     LIVE TOOLS
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+    <h2>Live Tools</h2>
+
+    <p>
+        Nepal time and Mangal Dhun
+    </p>
+
+</div>
+
+
+<div class="tools">
+
+
+<!-- NEPAL DATE & TIME -->
+
+<div class="tool-card">
+
+    <h3>
+        🇳🇵 आजको नेपाली मिति र समय
+    </h3>
+
+    <div class="nepali-date" id="nepaliDate">
+        ५ असोज २०८३, सोमबार
+    </div>
+
+    <div class="english-date">
+        21 September 2026
+    </div>
+
+    <div class="nepal-time" id="nepalTime">
+        00:00:00
+    </div>
+
+    <div class="date-text">
+        नेपाल समय (NST)
+    </div>
+
+</div>
+
+
+<!-- MANGAL DHUN -->
+
+<div class="tool-card">
+
+    <h3>
+        🎵 Mangal Dhun
+    </h3>
+
+    <p style="color:var(--muted);">
+        Listen to the peaceful Mangal Dhun
+    </p>
+
+    <button class="music-button" id="musicBtn">
+        ▶ Play Mangal Dhun
+    </button>
+
+    <div class="music-status" id="musicStatus">
+        Music is paused
+    </div>
+
+    <audio id="mangalAudio" src="mangal-dhun.mp3"></audio>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
      CONTACT
-===================================================== -->
+========================= -->
 
 <section id="contact">
 
-    <div class="contact-box">
+<div class="container">
 
-        <div class="section-label">
-            Contact
-        </div>
+<div class="section-title">
 
-        <h2>
-            Let's create something.
-        </h2>
+    <h2>Let's Talk</h2>
 
-        <p>
-            Have an idea, project or simply want to connect?
-            Feel free to reach out.
-        </p>
+    <p>
+        Have an idea? Let's create something interesting.
+    </p>
 
-        <a
-            class="email"
-            href="mailto:roshishnepal73@gmail.com">
+</div>
 
-            ✉️
-            roshishnepal73@gmail.com
 
-        </a>
+<div class="card contact-box">
 
-    </div>
+    <p>
+        You can contact me through email for creative ideas,
+        projects and collaborations.
+    </p>
+
+    <a
+        class="email"
+        href="mailto:roshishnepal73@gmail.com"
+    >
+        roshishnepal73@gmail.com
+    </a>
+
+</div>
+
+</div>
 
 </section>
 
-</main>
 
-
-<!-- =====================================================
+<!-- =========================
      FOOTER
-===================================================== -->
+========================= -->
 
 <footer>
 
-    © 2026
-    <strong>Roshish Nepal</strong>
-    — Creator & Developer
+    © 2026 Roshish Nepal • Creator & Developer
 
 </footer>
 
 
 <!-- SCROLL TOP -->
 
-<button id="topBtn" onclick="scrollToTop()">
+<button id="topBtn">
     ↑
 </button>
 
 
 <script>
 
-/* =====================================================
-   DASHain COUNTDOWN
-===================================================== */
+/* =========================
+   DASHAIN COUNTDOWN
+========================= */
 
 const dashainDate =
-    new Date(
-        "2026-10-21T00:00:00+05:45"
-    ).getTime();
+new Date("2026-10-21T00:00:00+05:45").getTime();
 
 function updateCountdown(){
 
-    const now =
-        new Date().getTime();
+    const now = new Date().getTime();
 
-    const difference =
-        dashainDate - now;
+    const distance = dashainDate - now;
 
-    if(difference <= 0){
+    if(distance <= 0){
 
         document.getElementById("days").textContent = "0";
         document.getElementById("hours").textContent = "0";
@@ -1435,43 +1148,30 @@ function updateCountdown(){
     }
 
     const days =
-        Math.floor(
-            difference /
-            (1000 * 60 * 60 * 24)
-        );
+        Math.floor(distance / (1000 * 60 * 60 * 24));
 
     const hours =
         Math.floor(
-            (difference %
-            (1000 * 60 * 60 * 24)) /
-            (1000 * 60 * 60)
+            (distance % (1000 * 60 * 60 * 24))
+            / (1000 * 60 * 60)
         );
 
     const minutes =
         Math.floor(
-            (difference %
-            (1000 * 60 * 60)) /
-            (1000 * 60)
+            (distance % (1000 * 60 * 60))
+            / (1000 * 60)
         );
 
     const seconds =
         Math.floor(
-            (difference %
-            (1000 * 60)) /
-            1000
+            (distance % (1000 * 60))
+            / 1000
         );
 
-    document.getElementById("days").textContent =
-        days;
-
-    document.getElementById("hours").textContent =
-        hours;
-
-    document.getElementById("minutes").textContent =
-        minutes;
-
-    document.getElementById("seconds").textContent =
-        seconds;
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
 }
 
 updateCountdown();
@@ -1479,43 +1179,24 @@ updateCountdown();
 setInterval(updateCountdown,1000);
 
 
-/* =====================================================
-   NEPAL CLOCK
-===================================================== */
+/* =========================
+   NEPAL LIVE TIME
+========================= */
 
 function updateNepalTime(){
 
     const now = new Date();
 
-    const date =
-        new Intl.DateTimeFormat(
-            "en-US",
-            {
-                timeZone:"Asia/Kathmandu",
-                weekday:"long",
-                year:"numeric",
-                month:"long",
-                day:"numeric"
-            }
-        ).format(now);
-
     const time =
-        new Intl.DateTimeFormat(
-            "en-US",
-            {
-                timeZone:"Asia/Kathmandu",
-                hour:"2-digit",
-                minute:"2-digit",
-                second:"2-digit",
-                hour12:true
-            }
-        ).format(now);
+        new Intl.DateTimeFormat("en-US",{
+            timeZone:"Asia/Kathmandu",
+            hour:"2-digit",
+            minute:"2-digit",
+            second:"2-digit",
+            hour12:true
+        }).format(now);
 
-    document.getElementById("nepalDate").textContent =
-        date;
-
-    document.getElementById("nepalTime").textContent =
-        time;
+    document.getElementById("nepalTime").textContent = time;
 }
 
 updateNepalTime();
@@ -1523,78 +1204,89 @@ updateNepalTime();
 setInterval(updateNepalTime,1000);
 
 
-/* =====================================================
+/* =========================
    MANGAL DHUN
-===================================================== */
+========================= */
 
-const music =
-    document.getElementById("mangalDhun");
+const audio =
+document.getElementById("mangalAudio");
 
 const musicBtn =
-    document.getElementById("musicBtn");
+document.getElementById("musicBtn");
 
-function toggleMusic(){
+const musicStatus =
+document.getElementById("musicStatus");
 
-    if(music.paused){
+musicBtn.addEventListener("click",function(){
 
-        music.play();
+    if(audio.paused){
 
-        musicBtn.textContent = "Ⅱ";
+        audio.play();
+
+        musicBtn.textContent =
+            "⏸ Pause Mangal Dhun";
+
+        musicStatus.textContent =
+            "Mangal Dhun is playing 🎵";
 
     }else{
 
-        music.pause();
+        audio.pause();
 
-        musicBtn.textContent = "▶";
+        musicBtn.textContent =
+            "▶ Play Mangal Dhun";
 
-    }
-}
-
-music.addEventListener(
-    "ended",
-    function(){
-
-        musicBtn.textContent = "▶";
+        musicStatus.textContent =
+            "Music is paused";
 
     }
-);
+
+});
 
 
-/* =====================================================
-   SCROLL TOP
-===================================================== */
+audio.addEventListener("ended",function(){
+
+    musicBtn.textContent =
+        "▶ Play Mangal Dhun";
+
+    musicStatus.textContent =
+        "Music is paused";
+
+});
+
+
+/* =========================
+   SCROLL TO TOP
+========================= */
 
 const topBtn =
-    document.getElementById("topBtn");
+document.getElementById("topBtn");
 
-window.addEventListener(
-    "scroll",
-    function(){
+window.addEventListener("scroll",function(){
 
-        if(window.scrollY > 500){
+    if(window.scrollY > 400){
 
-            topBtn.style.display = "block";
+        topBtn.style.display = "block";
 
-        }else{
+    }else{
 
-            topBtn.style.display = "none";
-
-        }
+        topBtn.style.display = "none";
 
     }
-);
 
-function scrollToTop(){
+});
+
+
+topBtn.addEventListener("click",function(){
 
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
 
-}
+});
 
 </script>
 
 </body>
 </html>
-```
