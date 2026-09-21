@@ -12,7 +12,6 @@
 
 :root{
     --bg:#050509;
-    --bg2:#0a0a12;
     --card:rgba(255,255,255,.045);
     --border:rgba(255,255,255,.10);
     --text:#f5f7fb;
@@ -61,7 +60,7 @@ body::after{
     z-index:-1;
 }
 
-/* NAVBAR */
+/* NAVIGATION */
 
 nav{
     position:sticky;
@@ -103,7 +102,7 @@ nav{
     color:var(--cyan);
 }
 
-/* COMMON */
+/* GENERAL */
 
 section{
     padding:100px 7%;
@@ -161,7 +160,12 @@ section{
 }
 
 .gradient-text{
-    background:linear-gradient(90deg,var(--cyan),var(--purple),var(--gold));
+    background:linear-gradient(
+        90deg,
+        var(--cyan),
+        var(--purple),
+        var(--gold)
+    );
     -webkit-background-clip:text;
     color:transparent;
 }
@@ -210,7 +214,11 @@ section{
 }
 
 .btn-primary{
-    background:linear-gradient(135deg,var(--cyan),var(--purple));
+    background:linear-gradient(
+        135deg,
+        var(--cyan),
+        var(--purple)
+    );
     color:#fff;
 }
 
@@ -309,10 +317,14 @@ section{
 .progress-bar{
     height:100%;
     border-radius:20px;
-    background:linear-gradient(90deg,var(--cyan),var(--purple));
+    background:linear-gradient(
+        90deg,
+        var(--cyan),
+        var(--purple)
+    );
 }
 
-/* DASHHAIN SECTION */
+/* DASHAIN SECTION */
 
 .dashain-section{
     position:relative;
@@ -327,9 +339,11 @@ section{
     border:1px solid rgba(255,209,102,.2);
     border-radius:30px;
     background:
-        radial-gradient(circle at center,
-        rgba(255,209,102,.10),
-        rgba(255,255,255,.025));
+        radial-gradient(
+            circle at center,
+            rgba(255,209,102,.10),
+            rgba(255,255,255,.025)
+        );
 }
 
 .dashain-box h2{
@@ -424,7 +438,11 @@ section{
     border:none;
     padding:14px 24px;
     border-radius:30px;
-    background:linear-gradient(135deg,var(--purple),var(--cyan));
+    background:linear-gradient(
+        135deg,
+        var(--purple),
+        var(--cyan)
+    );
     color:#fff;
     font-weight:800;
     cursor:pointer;
@@ -469,7 +487,7 @@ footer span{
     color:var(--cyan);
 }
 
-/* SCROLL TOP */
+/* TOP BUTTON */
 
 #topBtn{
     position:fixed;
@@ -489,21 +507,30 @@ footer span{
 }
 
 /* =========================
-   DASHHAIN OPENING POPUP
-   ========================= */
+   DASHAIN POPUP
+========================= */
 
 .dashain-popup{
     position:fixed;
     inset:0;
     z-index:99999;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     background:
-        radial-gradient(circle at center,
-        rgba(255,190,60,.18),
-        rgba(0,0,0,.97) 65%);
-    backdrop-filter:blur(12px);
+        linear-gradient(
+            rgba(0,0,0,.50),
+            rgba(0,0,0,.80)
+        ),
+        url("dashain.jfif")
+        center center /
+        cover
+        no-repeat;
+
+    backdrop-filter:blur(4px);
+
     animation:popupIn .5s ease;
 }
 
@@ -512,15 +539,19 @@ footer span{
     padding:45px 30px 35px;
     text-align:center;
     position:relative;
-    border:1px solid rgba(255,209,102,.45);
+
+    border:1px solid rgba(255,209,102,.55);
     border-radius:28px;
+
     background:
-        linear-gradient(145deg,
-        rgba(255,255,255,.09),
-        rgba(255,255,255,.025));
+        rgba(0,0,0,.48);
+
+    backdrop-filter:blur(10px);
+
     box-shadow:
-        0 0 80px rgba(255,170,0,.18),
-        inset 0 0 30px rgba(255,255,255,.03);
+        0 0 80px rgba(255,170,0,.25),
+        inset 0 0 30px rgba(255,255,255,.04);
+
     overflow:hidden;
 }
 
@@ -529,43 +560,61 @@ footer span{
     position:absolute;
     width:220px;
     height:220px;
+
     background:rgba(255,193,7,.13);
+
     filter:blur(60px);
+
     border-radius:50%;
+
     top:-100px;
     left:50%;
+
     transform:translateX(-50%);
 }
 
 .dashain-icon{
     font-size:55px;
-    animation:lampGlow 2s infinite alternate;
+
+    animation:
+        lampGlow 2s infinite alternate;
+
     position:relative;
 }
 
 .dashain-small{
     margin-top:12px;
+
     font-size:11px;
     letter-spacing:3px;
+
     color:#ffd166;
     font-weight:800;
 }
 
 .dashain-ad h1{
     margin:14px 0 5px;
+
     font-size:32px;
     font-weight:900;
+
     color:#fff;
+
+    text-shadow:
+        0 2px 15px rgba(0,0,0,.8);
 }
 
 .dashain-welcome{
-    color:#9ca3af;
+    color:#e5e7eb;
+
     margin:0 0 22px;
+
     font-size:15px;
 }
 
 .remaining-title{
     color:#ffd166;
+
     font-size:17px;
     font-weight:700;
 }
@@ -573,59 +622,105 @@ footer span{
 .dashain-days{
     font-size:70px;
     line-height:1;
+
     font-weight:950;
+
     margin:10px 0 2px;
+
     color:#fff;
-    text-shadow:0 0 30px rgba(255,209,102,.45);
+
+    text-shadow:
+        0 0 30px rgba(255,209,102,.55);
 }
 
 .days-text{
     color:#ffd166;
+
     font-weight:800;
     font-size:15px;
 }
 
 .dashain-countdown{
     margin:18px auto;
+
     padding:12px;
+
     border-radius:14px;
-    background:rgba(255,255,255,.05);
+
+    background:rgba(0,0,0,.40);
+
     color:#00e5ff;
+
     font-size:20px;
+
     font-weight:900;
+
     letter-spacing:2px;
+
+    border:1px solid rgba(255,255,255,.08);
 }
 
 .dashain-message{
-    color:#b7bcc7;
+    color:#e5e7eb;
+
     font-size:13px;
+
     line-height:1.7;
+
     max-width:390px;
+
     margin:20px auto;
+
+    text-shadow:
+        0 1px 8px rgba(0,0,0,.8);
 }
 
 .skip-btn{
     position:absolute;
+
     top:15px;
     right:15px;
-    border:1px solid rgba(255,255,255,.15);
-    background:rgba(255,255,255,.06);
-    color:#aaa;
+
+    border:1px solid rgba(255,255,255,.20);
+
+    background:rgba(0,0,0,.45);
+
+    color:#fff;
+
     padding:7px 12px;
+
     border-radius:20px;
+
     cursor:pointer;
+
+    z-index:5;
 }
 
 .continue-btn{
     border:none;
+
     padding:13px 25px;
+
     border-radius:30px;
-    background:linear-gradient(135deg,#ffd166,#ff9f1c);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd166,
+            #ff9f1c
+        );
+
     color:#111;
+
     font-weight:900;
+
     font-size:14px;
+
     cursor:pointer;
-    box-shadow:0 10px 30px rgba(255,174,0,.22);
+
+    box-shadow:
+        0 10px 30px rgba(255,174,0,.22);
+
     transition:.25s;
 }
 
@@ -633,26 +728,42 @@ footer span{
     transform:translateY(-2px);
 }
 
+/* ANIMATIONS */
+
 @keyframes popupIn{
+
     from{
         opacity:0;
         transform:scale(.96);
     }
+
     to{
         opacity:1;
         transform:scale(1);
     }
+
 }
 
 @keyframes lampGlow{
+
     from{
         transform:scale(1);
-        filter:drop-shadow(0 0 5px #ffd166);
+
+        filter:
+            drop-shadow(
+                0 0 5px #ffd166
+            );
     }
+
     to{
         transform:scale(1.08);
-        filter:drop-shadow(0 0 25px #ffd166);
+
+        filter:
+            drop-shadow(
+                0 0 25px #ffd166
+            );
     }
+
 }
 
 /* MOBILE */
@@ -723,14 +834,17 @@ footer span{
 <body>
 
 <!-- =========================
-     DASHHAIN OPENING POPUP
-     ========================= -->
+     DASHAIN POPUP
+========================= -->
 
 <div id="dashainPopup" class="dashain-popup">
 
     <div class="dashain-ad">
 
-        <button class="skip-btn" onclick="skipDashain()">
+        <button
+            class="skip-btn"
+            onclick="skipDashain()"
+        >
             ✕ Skip
         </button>
 
@@ -754,7 +868,10 @@ footer span{
             बडा दशैं आउन
         </div>
 
-        <div id="dashainDays" class="dashain-days">
+        <div
+            id="dashainDays"
+            class="dashain-days"
+        >
             00
         </div>
 
@@ -762,7 +879,10 @@ footer span{
             दिन बाँकी
         </div>
 
-        <div id="dashainCountdown" class="dashain-countdown">
+        <div
+            id="dashainCountdown"
+            class="dashain-countdown"
+        >
             00 : 00 : 00 : 00
         </div>
 
@@ -771,7 +891,10 @@ footer span{
             शुभ बडा दशैंको हार्दिक मंगलमय शुभकामना।
         </p>
 
-        <button class="continue-btn" onclick="skipDashain()">
+        <button
+            class="continue-btn"
+            onclick="skipDashain()"
+        >
             प्रवेश गर्नुहोस् →
         </button>
 
@@ -780,7 +903,7 @@ footer span{
 </div>
 
 
-<!-- NAVBAR -->
+<!-- NAVIGATION -->
 
 <nav>
 
@@ -821,7 +944,10 @@ footer span{
 
 <!-- HERO -->
 
-<section id="home" class="hero">
+<section
+    id="home"
+    class="hero"
+>
 
     <div class="hero-content">
 
@@ -903,7 +1029,8 @@ footer span{
             <h2>About Me</h2>
 
             <p>
-                A creator who loves turning ideas into digital experiences.
+                A creator who loves turning ideas
+                into digital experiences.
             </p>
 
         </div>
@@ -915,8 +1042,9 @@ footer span{
                 <h3>🚀 Creator</h3>
 
                 <p>
-                    I enjoy creating new ideas, digital projects
-                    and creative experiences.
+                    I enjoy creating new ideas,
+                    digital projects and
+                    creative experiences.
                 </p>
 
             </div>
@@ -926,8 +1054,8 @@ footer span{
                 <h3>💻 Developer</h3>
 
                 <p>
-                    I build websites and experiment with
-                    modern web technologies.
+                    I build websites and experiment
+                    with modern web technologies.
                 </p>
 
             </div>
@@ -937,8 +1065,9 @@ footer span{
                 <h3>💡 Thinker</h3>
 
                 <p>
-                    I believe every idea can become something
-                    useful with creativity and technology.
+                    I believe every idea can become
+                    something useful with creativity
+                    and technology.
                 </p>
 
             </div>
@@ -984,7 +1113,6 @@ footer span{
 
             </div>
 
-
             <div class="skill">
 
                 <div class="skill-top">
@@ -1001,7 +1129,6 @@ footer span{
 
             </div>
 
-
             <div class="skill">
 
                 <div class="skill-top">
@@ -1017,7 +1144,6 @@ footer span{
                 </div>
 
             </div>
-
 
             <div class="skill">
 
@@ -1062,29 +1188,37 @@ footer span{
 
             <div class="card">
 
-                <h3>🌐 Personal Portfolio</h3>
+                <h3>
+                    🌐 Personal Portfolio
+                </h3>
 
                 <p>
-                    My personal website built to showcase
-                    my skills, projects and creativity.
+                    My personal website built to
+                    showcase my skills, projects
+                    and creativity.
                 </p>
 
             </div>
 
             <div class="card">
 
-                <h3>🪔 Dashain Special</h3>
+                <h3>
+                    🪔 Dashain Special
+                </h3>
 
                 <p>
-                    A special interactive Dashain experience
-                    with countdown and Nepali festival vibes.
+                    A special interactive Dashain
+                    experience with countdown and
+                    Nepali festival vibes.
                 </p>
 
             </div>
 
             <div class="card">
 
-                <h3>✨ Creative Experiments</h3>
+                <h3>
+                    ✨ Creative Experiments
+                </h3>
 
                 <p>
                     Various creative web experiments,
@@ -1102,7 +1236,10 @@ footer span{
 
 <!-- DASHAIN -->
 
-<section id="dashain" class="dashain-section">
+<section
+    id="dashain"
+    class="dashain-section"
+>
 
     <div class="container">
 
@@ -1119,23 +1256,51 @@ footer span{
             <div class="countdown">
 
                 <div class="count-box">
-                    <strong id="days">00</strong>
-                    <span>Days</span>
+
+                    <strong id="days">
+                        00
+                    </strong>
+
+                    <span>
+                        Days
+                    </span>
+
                 </div>
 
                 <div class="count-box">
-                    <strong id="hours">00</strong>
-                    <span>Hours</span>
+
+                    <strong id="hours">
+                        00
+                    </strong>
+
+                    <span>
+                        Hours
+                    </span>
+
                 </div>
 
                 <div class="count-box">
-                    <strong id="minutes">00</strong>
-                    <span>Minutes</span>
+
+                    <strong id="minutes">
+                        00
+                    </strong>
+
+                    <span>
+                        Minutes
+                    </span>
+
                 </div>
 
                 <div class="count-box">
-                    <strong id="seconds">00</strong>
-                    <span>Seconds</span>
+
+                    <strong id="seconds">
+                        00
+                    </strong>
+
+                    <span>
+                        Seconds
+                    </span>
+
                 </div>
 
             </div>
@@ -1155,7 +1320,9 @@ footer span{
 
         <div class="section-title">
 
-            <h2>Live Tools</h2>
+            <h2>
+                Live Tools
+            </h2>
 
             <p>
                 Nepal time and Dashain music.
@@ -1164,8 +1331,6 @@ footer span{
         </div>
 
         <div class="tools-grid">
-
-            <!-- DATE & TIME -->
 
             <div class="tool-card">
 
@@ -1194,8 +1359,6 @@ footer span{
 
             </div>
 
-
-            <!-- MUSIC -->
 
             <div class="tool-card">
 
@@ -1253,10 +1416,13 @@ footer span{
 
         <div class="section-title">
 
-            <h2>Let's Talk</h2>
+            <h2>
+                Let's Talk
+            </h2>
 
             <p>
-                Have an idea? Let's create something awesome.
+                Have an idea?
+                Let's create something awesome.
             </p>
 
         </div>
@@ -1301,11 +1467,16 @@ footer span{
 </footer>
 
 
-<!-- SCROLL TOP -->
+<!-- TOP BUTTON -->
 
 <button
     id="topBtn"
-    onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    onclick="
+        window.scrollTo({
+            top:0,
+            behavior:'smooth'
+        })
+    "
 >
     ↑
 </button>
@@ -1314,11 +1485,16 @@ footer span{
 <script>
 
 /* =========================
-   DASHAIN POPUP COUNTDOWN
-   ========================= */
+   DASHAIN DATE
+========================= */
 
 const dashainDate =
     new Date("2026-10-21T00:00:00+05:45");
+
+
+/* =========================
+   POPUP COUNTDOWN
+========================= */
 
 function updateDashainPopup(){
 
@@ -1342,7 +1518,9 @@ function updateDashainPopup(){
     }
 
     const totalSeconds =
-        Math.floor(difference / 1000);
+        Math.floor(
+            difference / 1000
+        );
 
     const days =
         Math.floor(
@@ -1388,8 +1566,8 @@ setInterval(
 
 
 /* =========================
-   SKIP DASHAIN POPUP
-   ========================= */
+   SKIP POPUP
+========================= */
 
 function skipDashain(){
 
@@ -1411,7 +1589,7 @@ function skipDashain(){
 
 /* =========================
    MAIN DASHAIN COUNTDOWN
-   ========================= */
+========================= */
 
 function updateMainCountdown(){
 
@@ -1496,7 +1674,7 @@ setInterval(
 
 /* =========================
    NEPAL TIME
-   ========================= */
+========================= */
 
 function updateNepalTime(){
 
@@ -1530,7 +1708,7 @@ setInterval(
 
 /* =========================
    MANGAL DHUN
-   ========================= */
+========================= */
 
 const audio =
     document.getElementById(
@@ -1568,7 +1746,9 @@ function toggleMusic(){
 
         });
 
-    }else{
+    }
+
+    else{
 
         audio.pause();
 
@@ -1598,7 +1778,7 @@ audio.addEventListener(
 
 /* =========================
    SCROLL TOP BUTTON
-   ========================= */
+========================= */
 
 window.addEventListener(
     "scroll",
@@ -1614,7 +1794,9 @@ window.addEventListener(
             button.style.display =
                 "block";
 
-        }else{
+        }
+
+        else{
 
             button.style.display =
                 "none";
