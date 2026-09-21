@@ -5,9 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Roshish Nepal | Creator & Developer</title>
-<meta name="description" content="Roshish Nepal - Creator & Developer">
+
+<meta name="description" content="Roshish Nepal — Creator & Developer">
 
 <style>
+
 :root{
     --bg:#050509;
     --bg2:#0a0a12;
@@ -29,27 +31,33 @@
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:
-        radial-gradient(circle at top left,rgba(0,229,255,.08),transparent 35%),
-        radial-gradient(circle at bottom right,rgba(139,92,246,.10),transparent 35%),
-        var(--bg);
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
     color:var(--text);
-    line-height:1.6;
     overflow-x:hidden;
 }
-
-/* BACKGROUND GRID */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
-    background-image:
+    z-index:-2;
+    background:
         linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
         linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-    background-size:50px 50px;
-    pointer-events:none;
+    background-size:40px 40px;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(0,229,255,.08);
+    filter:blur(100px);
+    top:-200px;
+    right:-200px;
     z-index:-1;
 }
 
@@ -59,24 +67,19 @@ nav{
     position:sticky;
     top:0;
     z-index:1000;
-    backdrop-filter:blur(18px);
-    background:rgba(5,5,9,.75);
-    border-bottom:1px solid var(--border);
-}
-
-.nav-container{
-    max-width:1150px;
-    margin:auto;
-    padding:18px 25px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    padding:18px 7%;
+    background:rgba(5,5,9,.78);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
 }
 
 .logo{
     font-size:22px;
     font-weight:900;
-    color:white;
+    color:#fff;
 }
 
 .logo span{
@@ -90,8 +93,8 @@ nav{
 }
 
 .nav-links a{
-    color:var(--muted);
     text-decoration:none;
+    color:var(--muted);
     font-size:14px;
     transition:.3s;
 }
@@ -100,16 +103,15 @@ nav{
     color:var(--cyan);
 }
 
-/* GENERAL */
+/* COMMON */
+
+section{
+    padding:100px 7%;
+}
 
 .container{
     max-width:1150px;
     margin:auto;
-    padding:0 25px;
-}
-
-section{
-    padding:90px 0;
 }
 
 .section-title{
@@ -132,117 +134,94 @@ section{
     min-height:90vh;
     display:flex;
     align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding-top:80px;
 }
 
-.hero-grid{
-    display:grid;
-    grid-template-columns:1.2fr .8fr;
-    gap:60px;
-    align-items:center;
+.hero-content{
+    max-width:850px;
 }
 
-.badge{
+.availability{
     display:inline-block;
-    padding:8px 14px;
-    border:1px solid rgba(0,229,255,.25);
+    padding:8px 16px;
+    border:1px solid rgba(34,197,94,.3);
+    background:rgba(34,197,94,.08);
     border-radius:30px;
-    background:rgba(0,229,255,.06);
-    color:var(--cyan);
+    color:#86efac;
     font-size:13px;
-    margin-bottom:20px;
+    margin-bottom:22px;
 }
 
 .hero h1{
-    font-size:64px;
-    line-height:1.1;
-    margin-bottom:0;
+    font-size:clamp(45px,8vw,85px);
+    line-height:1;
+    margin-bottom:8px;
 }
 
 .gradient-text{
-    background:linear-gradient(90deg,var(--cyan),var(--purple));
+    background:linear-gradient(90deg,var(--cyan),var(--purple),var(--gold));
     -webkit-background-clip:text;
-    background-clip:text;
     color:transparent;
 }
 
-/* DASHAIN UNDER NAME */
-
 .hero-dashain{
-    margin:10px 0 10px;
-    font-size:20px;
-    font-weight:800;
+    margin:14px 0 12px;
+    font-size:21px;
+    font-weight:900;
     color:var(--gold);
-    text-shadow:0 0 15px rgba(255,209,102,.35);
+    text-shadow:0 0 18px rgba(255,209,102,.35);
 }
 
 .hero h2{
     font-size:25px;
     color:var(--muted);
-    margin-bottom:20px;
+    margin-bottom:30px;
 }
 
-.hero p{
-    color:var(--muted);
-    max-width:650px;
-    font-size:17px;
+.hero-img{
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid rgba(0,229,255,.5);
+    box-shadow:
+        0 0 35px rgba(0,229,255,.2),
+        0 0 80px rgba(139,92,246,.12);
+    margin-top:15px;
 }
 
 .hero-buttons{
     display:flex;
+    justify-content:center;
     gap:15px;
     margin-top:30px;
     flex-wrap:wrap;
 }
 
 .btn{
-    padding:13px 22px;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:700;
     display:inline-block;
+    padding:13px 24px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:800;
     transition:.3s;
 }
 
 .btn-primary{
-    background:linear-gradient(90deg,var(--cyan),var(--purple));
-    color:white;
+    background:linear-gradient(135deg,var(--cyan),var(--purple));
+    color:#fff;
 }
 
 .btn-secondary{
     border:1px solid var(--border);
-    color:white;
-    background:var(--card);
+    color:#fff;
+    background:rgba(255,255,255,.04);
 }
 
 .btn:hover{
     transform:translateY(-3px);
-}
-
-.profile-card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:30px;
-    padding:25px;
-    text-align:center;
-    backdrop-filter:blur(15px);
-    box-shadow:0 25px 70px rgba(0,0,0,.35);
-}
-
-.profile-card img{
-    width:280px;
-    height:280px;
-    object-fit:cover;
-    border-radius:25px;
-    border:2px solid rgba(0,229,255,.25);
-}
-
-.profile-card h3{
-    margin-top:20px;
-    font-size:25px;
-}
-
-.profile-card p{
-    color:var(--muted);
 }
 
 /* STATS */
@@ -251,15 +230,15 @@ section{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:20px;
-    margin-top:50px;
+    margin-top:70px;
 }
 
 .stat{
     padding:25px;
+    text-align:center;
     background:var(--card);
     border:1px solid var(--border);
-    border-radius:18px;
-    text-align:center;
+    border-radius:20px;
 }
 
 .stat h3{
@@ -269,116 +248,88 @@ section{
 
 .stat p{
     color:var(--muted);
-    font-size:14px;
+    margin-top:7px;
 }
 
-/* ABOUT */
+/* CARDS */
 
-.about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-}
-
-.card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:22px;
-    padding:30px;
-    backdrop-filter:blur(15px);
-}
-
-.card h3{
-    margin-bottom:15px;
-    font-size:23px;
-}
-
-.card p{
-    color:var(--muted);
-}
-
-/* SKILLS */
-
-.skills{
-    display:grid;
-    gap:22px;
-}
-
-.skill{
-    background:var(--card);
-    border:1px solid var(--border);
-    padding:22px;
-    border-radius:18px;
-}
-
-.skill-top{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:10px;
-}
-
-.skill-top span:last-child{
-    color:var(--cyan);
-}
-
-.skill-bar{
-    height:9px;
-    background:rgba(255,255,255,.08);
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.skill-fill{
-    height:100%;
-    border-radius:20px;
-    background:linear-gradient(90deg,var(--cyan),var(--purple));
-}
-
-/* PROJECTS */
-
-.projects{
+.card-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:22px;
 }
 
-.project{
+.card{
+    padding:28px;
     background:var(--card);
     border:1px solid var(--border);
-    padding:28px;
     border-radius:22px;
     transition:.3s;
 }
 
-.project:hover{
-    transform:translateY(-7px);
+.card:hover{
+    transform:translateY(-6px);
     border-color:rgba(0,229,255,.3);
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
 }
 
-.project-icon{
-    font-size:38px;
-    margin-bottom:15px;
+.card h3{
+    margin-bottom:12px;
 }
 
-.project h3{
-    margin-bottom:10px;
-}
-
-.project p{
+.card p{
     color:var(--muted);
-    font-size:14px;
+    line-height:1.7;
 }
 
-/* DASHAIN SECTION */
+/* SKILLS */
+
+.skill{
+    margin-bottom:25px;
+}
+
+.skill-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+}
+
+.skill-top span:last-child{
+    color:var(--cyan);
+    font-weight:800;
+}
+
+.progress{
+    height:9px;
+    background:rgba(255,255,255,.07);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    border-radius:20px;
+    background:linear-gradient(90deg,var(--cyan),var(--purple));
+}
+
+/* DASHHAIN SECTION */
+
+.dashain-section{
+    position:relative;
+    overflow:hidden;
+}
 
 .dashain-box{
+    max-width:900px;
+    margin:auto;
     text-align:center;
-    padding:60px 30px;
+    padding:55px 25px;
+    border:1px solid rgba(255,209,102,.2);
     border-radius:30px;
     background:
-        radial-gradient(circle at center,rgba(255,209,102,.10),transparent 55%),
-        var(--card);
-    border:1px solid rgba(255,209,102,.18);
+        radial-gradient(circle at center,
+        rgba(255,209,102,.10),
+        rgba(255,255,255,.025));
 }
 
 .dashain-box h2{
@@ -386,24 +337,30 @@ section{
     color:var(--gold);
 }
 
+.dashain-box p{
+    color:var(--muted);
+}
+
 .countdown{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
+    display:flex;
+    justify-content:center;
     gap:15px;
-    margin-top:35px;
+    margin-top:30px;
+    flex-wrap:wrap;
 }
 
 .count-box{
+    min-width:100px;
     padding:20px;
-    border-radius:18px;
     background:rgba(255,255,255,.05);
     border:1px solid var(--border);
+    border-radius:18px;
 }
 
 .count-box strong{
     display:block;
     font-size:32px;
-    color:var(--gold);
+    color:#fff;
 }
 
 .count-box span{
@@ -411,27 +368,25 @@ section{
     font-size:12px;
 }
 
-/* TOOLS */
+/* LIVE TOOLS */
 
-.tools{
+.tools-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:25px;
 }
 
 .tool-card{
+    padding:30px;
+    border-radius:25px;
     background:var(--card);
     border:1px solid var(--border);
-    border-radius:22px;
-    padding:30px;
     text-align:center;
 }
 
 .tool-card h3{
-    margin-bottom:15px;
+    margin-bottom:10px;
 }
-
-/* NEPALI DATE */
 
 .nepali-date{
     font-size:26px;
@@ -461,53 +416,60 @@ section{
 
 /* MUSIC */
 
-.music-button{
-    border:none;
-    padding:14px 24px;
-    border-radius:12px;
-    background:linear-gradient(90deg,var(--cyan),var(--purple));
-    color:white;
-    font-weight:800;
-    cursor:pointer;
+.music-player{
     margin-top:15px;
 }
 
+.music-button{
+    border:none;
+    padding:14px 24px;
+    border-radius:30px;
+    background:linear-gradient(135deg,var(--purple),var(--cyan));
+    color:#fff;
+    font-weight:800;
+    cursor:pointer;
+}
+
 .music-status{
+    margin-top:15px;
     color:var(--muted);
     font-size:13px;
-    margin-top:10px;
 }
 
 /* CONTACT */
 
 .contact-box{
-    text-align:center;
     max-width:750px;
     margin:auto;
-}
-
-.contact-box p{
-    color:var(--muted);
-    margin-bottom:25px;
+    text-align:center;
+    padding:45px 25px;
+    border:1px solid var(--border);
+    border-radius:25px;
+    background:var(--card);
 }
 
 .email{
+    display:inline-block;
+    margin-top:25px;
     color:var(--cyan);
-    font-weight:700;
     text-decoration:none;
+    font-weight:800;
 }
 
 /* FOOTER */
 
 footer{
-    border-top:1px solid var(--border);
-    padding:30px 20px;
     text-align:center;
+    padding:35px 20px;
+    border-top:1px solid var(--border);
     color:var(--muted);
-    font-size:14px;
 }
 
-/* TOP BUTTON */
+footer span{
+    color:var(--cyan);
+}
+
+/* SCROLL TOP */
 
 #topBtn{
     position:fixed;
@@ -517,607 +479,834 @@ footer{
     height:45px;
     border:none;
     border-radius:50%;
-    background:linear-gradient(135deg,var(--cyan),var(--purple));
-    color:white;
+    background:var(--cyan);
+    color:#000;
     font-size:20px;
+    font-weight:900;
     cursor:pointer;
     display:none;
     z-index:999;
 }
 
-/* RESPONSIVE */
+/* =========================
+   DASHHAIN OPENING POPUP
+   ========================= */
 
-@media(max-width:850px){
+.dashain-popup{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        radial-gradient(circle at center,
+        rgba(255,190,60,.18),
+        rgba(0,0,0,.97) 65%);
+    backdrop-filter:blur(12px);
+    animation:popupIn .5s ease;
+}
 
-    .hero-grid,
-    .about-grid,
-    .tools{
-        grid-template-columns:1fr;
+.dashain-ad{
+    width:min(90%,520px);
+    padding:45px 30px 35px;
+    text-align:center;
+    position:relative;
+    border:1px solid rgba(255,209,102,.45);
+    border-radius:28px;
+    background:
+        linear-gradient(145deg,
+        rgba(255,255,255,.09),
+        rgba(255,255,255,.025));
+    box-shadow:
+        0 0 80px rgba(255,170,0,.18),
+        inset 0 0 30px rgba(255,255,255,.03);
+    overflow:hidden;
+}
+
+.dashain-ad::before{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    background:rgba(255,193,7,.13);
+    filter:blur(60px);
+    border-radius:50%;
+    top:-100px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.dashain-icon{
+    font-size:55px;
+    animation:lampGlow 2s infinite alternate;
+    position:relative;
+}
+
+.dashain-small{
+    margin-top:12px;
+    font-size:11px;
+    letter-spacing:3px;
+    color:#ffd166;
+    font-weight:800;
+}
+
+.dashain-ad h1{
+    margin:14px 0 5px;
+    font-size:32px;
+    font-weight:900;
+    color:#fff;
+}
+
+.dashain-welcome{
+    color:#9ca3af;
+    margin:0 0 22px;
+    font-size:15px;
+}
+
+.remaining-title{
+    color:#ffd166;
+    font-size:17px;
+    font-weight:700;
+}
+
+.dashain-days{
+    font-size:70px;
+    line-height:1;
+    font-weight:950;
+    margin:10px 0 2px;
+    color:#fff;
+    text-shadow:0 0 30px rgba(255,209,102,.45);
+}
+
+.days-text{
+    color:#ffd166;
+    font-weight:800;
+    font-size:15px;
+}
+
+.dashain-countdown{
+    margin:18px auto;
+    padding:12px;
+    border-radius:14px;
+    background:rgba(255,255,255,.05);
+    color:#00e5ff;
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.dashain-message{
+    color:#b7bcc7;
+    font-size:13px;
+    line-height:1.7;
+    max-width:390px;
+    margin:20px auto;
+}
+
+.skip-btn{
+    position:absolute;
+    top:15px;
+    right:15px;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.06);
+    color:#aaa;
+    padding:7px 12px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.continue-btn{
+    border:none;
+    padding:13px 25px;
+    border-radius:30px;
+    background:linear-gradient(135deg,#ffd166,#ff9f1c);
+    color:#111;
+    font-weight:900;
+    font-size:14px;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(255,174,0,.22);
+    transition:.25s;
+}
+
+.continue-btn:hover{
+    transform:translateY(-2px);
+}
+
+@keyframes popupIn{
+    from{
+        opacity:0;
+        transform:scale(.96);
     }
-
-    .projects{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .hero{
-        text-align:center;
-    }
-
-    .hero p{
-        margin:auto;
-    }
-
-    .hero-buttons{
-        justify-content:center;
-    }
-
-    .hero h1{
-        font-size:45px;
+    to{
+        opacity:1;
+        transform:scale(1);
     }
 }
 
-@media(max-width:600px){
+@keyframes lampGlow{
+    from{
+        transform:scale(1);
+        filter:drop-shadow(0 0 5px #ffd166);
+    }
+    to{
+        transform:scale(1.08);
+        filter:drop-shadow(0 0 25px #ffd166);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    nav{
+        padding:16px 5%;
+    }
 
     .nav-links{
         display:none;
     }
 
-    .nav-container{
-        justify-content:center;
-    }
-
-    .hero h1{
-        font-size:38px;
-    }
-
-    .hero h2{
-        font-size:20px;
-    }
-
-    .hero-dashain{
-        font-size:17px;
-    }
-
-    .profile-card img{
-        width:220px;
-        height:220px;
+    section{
+        padding:75px 5%;
     }
 
     .stats{
         grid-template-columns:1fr;
     }
 
-    .projects{
+    .card-grid{
         grid-template-columns:1fr;
     }
 
-    .countdown{
-        grid-template-columns:1fr 1fr;
+    .tools-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:50px;
+    }
+
+    .hero h2{
+        font-size:20px;
+    }
+
+    .section-title h2{
+        font-size:30px;
     }
 
     .dashain-box h2{
-        font-size:29px;
+        font-size:30px;
     }
 
-    section{
-        padding:65px 0;
+    .dashain-ad{
+        padding:38px 20px 28px;
     }
+
+    .dashain-ad h1{
+        font-size:26px;
+    }
+
+    .dashain-days{
+        font-size:58px;
+    }
+
+    .dashain-countdown{
+        font-size:16px;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <!-- =========================
-     NAVBAR
-========================= -->
+     DASHHAIN OPENING POPUP
+     ========================= -->
+
+<div id="dashainPopup" class="dashain-popup">
+
+    <div class="dashain-ad">
+
+        <button class="skip-btn" onclick="skipDashain()">
+            ✕ Skip
+        </button>
+
+        <div class="dashain-icon">
+            🪔
+        </div>
+
+        <div class="dashain-small">
+            🇳🇵 NEPAL'S BIGGEST FESTIVAL 🇳🇵
+        </div>
+
+        <h1>
+            शुभ बडा दशैं २०८३
+        </h1>
+
+        <p class="dashain-welcome">
+            Happy Dashain 2026
+        </p>
+
+        <div class="remaining-title">
+            बडा दशैं आउन
+        </div>
+
+        <div id="dashainDays" class="dashain-days">
+            00
+        </div>
+
+        <div class="days-text">
+            दिन बाँकी
+        </div>
+
+        <div id="dashainCountdown" class="dashain-countdown">
+            00 : 00 : 00 : 00
+        </div>
+
+        <p class="dashain-message">
+            परिवार, खुशी, आशिष र समृद्धिले भरिएको
+            शुभ बडा दशैंको हार्दिक मंगलमय शुभकामना।
+        </p>
+
+        <button class="continue-btn" onclick="skipDashain()">
+            प्रवेश गर्नुहोस् →
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- NAVBAR -->
 
 <nav>
-<div class="nav-container">
 
     <div class="logo">
         Roshish<span>.</span>
     </div>
 
     <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#dashain">Dashain</a></li>
-        <li><a href="#contact">Let's Talk</a></li>
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#about">About</a>
+        </li>
+
+        <li>
+            <a href="#skills">Skills</a>
+        </li>
+
+        <li>
+            <a href="#projects">Projects</a>
+        </li>
+
+        <li>
+            <a href="#dashain">Dashain</a>
+        </li>
+
+        <li>
+            <a href="#contact">Let's Talk</a>
+        </li>
+
     </ul>
 
-</div>
 </nav>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
-<section class="hero" id="home">
+<section id="home" class="hero">
 
-<div class="container">
+    <div class="hero-content">
 
-<div class="hero-grid">
+        <div class="availability">
+            ● Available for creative projects
+        </div>
 
-<div>
+        <h1>
+            Hi, I'm
+            <span class="gradient-text">
+                Roshish Nepal
+            </span>
+        </h1>
 
-    <div class="badge">
-        ✨ Available for creative projects
+        <div class="hero-dashain">
+            🪔 शुभ विजयादशमी २०८३ 🪔
+        </div>
+
+        <h2>
+            Creator & Developer
+        </h2>
+
+        <img
+            src="profile.jpg"
+            alt="Roshish Nepal"
+            class="hero-img"
+        >
+
+        <div class="hero-buttons">
+
+            <a
+                href="#projects"
+                class="btn btn-primary"
+            >
+                View My Work
+            </a>
+
+            <a
+                href="#contact"
+                class="btn btn-secondary"
+            >
+                Contact Me
+            </a>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="stat">
+                <h3>95%</h3>
+                <p>Web Development</p>
+            </div>
+
+            <div class="stat">
+                <h3>90%</h3>
+                <p>Creative Design</p>
+            </div>
+
+            <div class="stat">
+                <h3>∞</h3>
+                <p>Creative Ideas</p>
+            </div>
+
+        </div>
+
     </div>
-
-    <h1>
-        Hi, I'm
-        <span class="gradient-text">
-            Roshish Nepal
-        </span>
-    </h1>
-
-    <!-- DASHain UNDER NAME -->
-
-    <div class="hero-dashain">
-        🪔 शुभ विजयादशमी २०८३ 🪔
-    </div>
-
-    <h2>
-        Creator & Developer
-    </h2>
-
-    <p>
-        I create modern websites, creative digital experiences
-        and interesting projects with technology and imagination.
-    </p>
-
-    <div class="hero-buttons">
-
-        <a href="#projects" class="btn btn-primary">
-            View My Work
-        </a>
-
-        <a href="#contact" class="btn btn-secondary">
-            Contact Me
-        </a>
-
-    </div>
-
-</div>
-
-
-<div class="profile-card">
-
-    <img src="profile.jpg" alt="Roshish Nepal">
-
-    <h3>Roshish Nepal</h3>
-
-    <p>
-        Creator • Developer • Creative Mind
-    </p>
-
-</div>
-
-</div>
-
-
-<!-- STATS -->
-
-<div class="stats">
-
-<div class="stat">
-    <h3>95%</h3>
-    <p>Web Development</p>
-</div>
-
-<div class="stat">
-    <h3>90%</h3>
-    <p>Creative Design</p>
-</div>
-
-<div class="stat">
-    <h3>∞</h3>
-    <p>Creative Ideas</p>
-</div>
-
-</div>
-
-</div>
 
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ABOUT -->
 
 <section id="about">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-title">
+        <div class="section-title">
 
-    <h2>About Me</h2>
+            <h2>About Me</h2>
 
-    <p>
-        A little introduction about me
-    </p>
+            <p>
+                A creator who loves turning ideas into digital experiences.
+            </p>
 
-</div>
+        </div>
 
+        <div class="card-grid">
 
-<div class="about-grid">
+            <div class="card">
 
-<div class="card">
+                <h3>🚀 Creator</h3>
 
-    <h3>👋 Who I Am</h3>
+                <p>
+                    I enjoy creating new ideas, digital projects
+                    and creative experiences.
+                </p>
 
-    <p>
-        I'm Roshish Nepal, a creator and developer who enjoys
-        building websites, experimenting with technology and
-        turning creative ideas into digital projects.
-    </p>
+            </div>
 
-</div>
+            <div class="card">
 
+                <h3>💻 Developer</h3>
 
-<div class="card">
+                <p>
+                    I build websites and experiment with
+                    modern web technologies.
+                </p>
 
-    <h3>🚀 What I Do</h3>
+            </div>
 
-    <p>
-        I work on websites, creative designs, digital projects
-        and new ideas. My goal is to make things simple,
-        modern and enjoyable.
-    </p>
+            <div class="card">
 
-</div>
+                <h3>💡 Thinker</h3>
 
-</div>
+                <p>
+                    I believe every idea can become something
+                    useful with creativity and technology.
+                </p>
 
-</div>
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- =========================
-     SKILLS
-========================= -->
+<!-- SKILLS -->
 
 <section id="skills">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-title">
+        <div class="section-title">
 
-    <h2>My Skills</h2>
+            <h2>My Skills</h2>
 
-    <p>
-        Things I enjoy working with
-    </p>
+            <p>
+                Things I love working with.
+            </p>
 
-</div>
+        </div>
 
+        <div class="card">
 
-<div class="skills">
+            <div class="skill">
 
-<div class="skill">
+                <div class="skill-top">
+                    <span>Web Development</span>
+                    <span>95%</span>
+                </div>
 
-<div class="skill-top">
-    <span>🌐 Web Development</span>
-    <span>95%</span>
-</div>
+                <div class="progress">
+                    <div
+                        class="progress-bar"
+                        style="width:95%"
+                    ></div>
+                </div>
 
-<div class="skill-bar">
-    <div class="skill-fill" style="width:95%"></div>
-</div>
-
-</div>
-
-
-<div class="skill">
-
-<div class="skill-top">
-    <span>🎨 Creative Design</span>
-    <span>90%</span>
-</div>
-
-<div class="skill-bar">
-    <div class="skill-fill" style="width:90%"></div>
-</div>
-
-</div>
+            </div>
 
 
-<div class="skill">
+            <div class="skill">
 
-<div class="skill-top">
-    <span>💡 Project Development</span>
-    <span>85%</span>
-</div>
+                <div class="skill-top">
+                    <span>Creative Design</span>
+                    <span>90%</span>
+                </div>
 
-<div class="skill-bar">
-    <div class="skill-fill" style="width:85%"></div>
-</div>
+                <div class="progress">
+                    <div
+                        class="progress-bar"
+                        style="width:90%"
+                    ></div>
+                </div>
 
-</div>
+            </div>
 
 
-<div class="skill">
+            <div class="skill">
 
-<div class="skill-top">
-    <span>✨ Creative Ideas</span>
-    <span>80%</span>
-</div>
+                <div class="skill-top">
+                    <span>Project Development</span>
+                    <span>85%</span>
+                </div>
 
-<div class="skill-bar">
-    <div class="skill-fill" style="width:80%"></div>
-</div>
+                <div class="progress">
+                    <div
+                        class="progress-bar"
+                        style="width:85%"
+                    ></div>
+                </div>
 
-</div>
+            </div>
 
-</div>
 
-</div>
+            <div class="skill">
+
+                <div class="skill-top">
+                    <span>Creative Ideas</span>
+                    <span>80%</span>
+                </div>
+
+                <div class="progress">
+                    <div
+                        class="progress-bar"
+                        style="width:80%"
+                    ></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- =========================
-     PROJECTS
-========================= -->
+<!-- PROJECTS -->
 
 <section id="projects">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-title">
+        <div class="section-title">
 
-    <h2>My Projects</h2>
+            <h2>My Projects</h2>
 
-    <p>
-        Some of my creative work
-    </p>
+            <p>
+                Some of my creative work.
+            </p>
 
-</div>
-
-
-<div class="projects">
-
-
-<div class="project">
-
-    <div class="project-icon">💻</div>
-
-    <h3>Personal Portfolio</h3>
-
-    <p>
-        A modern personal website showcasing my profile,
-        skills, projects and contact information.
-    </p>
-
-</div>
-
-
-<div class="project">
-
-    <div class="project-icon">🪔</div>
-
-    <h3>Dashain Special</h3>
-
-    <p>
-        A special Nepal-themed Dashain experience with
-        Nepali date, countdown and festival design.
-    </p>
-
-</div>
-
-
-<div class="project">
-
-    <div class="project-icon">🚀</div>
-
-    <h3>Creative Experiments</h3>
-
-    <p>
-        Different creative ideas, web experiments and
-        digital projects built with curiosity.
-    </p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     DASHAIN
-========================= -->
-
-<section id="dashain">
-
-<div class="container">
-
-<div class="dashain-box">
-
-    <h2>
-        🪔 शुभ विजयादशमी २०८३ 🪔
-    </h2>
-
-    <p style="color:var(--muted); margin-top:18px;">
-        Countdown to Vijayadashami 2083
-    </p>
-
-
-    <div class="countdown">
-
-        <div class="count-box">
-            <strong id="days">0</strong>
-            <span>Days</span>
         </div>
 
-        <div class="count-box">
-            <strong id="hours">0</strong>
-            <span>Hours</span>
-        </div>
+        <div class="card-grid">
 
-        <div class="count-box">
-            <strong id="minutes">0</strong>
-            <span>Minutes</span>
-        </div>
+            <div class="card">
 
-        <div class="count-box">
-            <strong id="seconds">0</strong>
-            <span>Seconds</span>
+                <h3>🌐 Personal Portfolio</h3>
+
+                <p>
+                    My personal website built to showcase
+                    my skills, projects and creativity.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🪔 Dashain Special</h3>
+
+                <p>
+                    A special interactive Dashain experience
+                    with countdown and Nepali festival vibes.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>✨ Creative Experiments</h3>
+
+                <p>
+                    Various creative web experiments,
+                    ideas and digital projects.
+                </p>
+
+            </div>
+
         </div>
 
     </div>
 
-</div>
+</section>
 
-</div>
+
+<!-- DASHAIN -->
+
+<section id="dashain" class="dashain-section">
+
+    <div class="container">
+
+        <div class="dashain-box">
+
+            <h2>
+                🪔 शुभ विजयादशमी २०८३ 🪔
+            </h2>
+
+            <p style="margin-top:18px;">
+                Countdown to Vijayadashami 2083
+            </p>
+
+            <div class="countdown">
+
+                <div class="count-box">
+                    <strong id="days">00</strong>
+                    <span>Days</span>
+                </div>
+
+                <div class="count-box">
+                    <strong id="hours">00</strong>
+                    <span>Hours</span>
+                </div>
+
+                <div class="count-box">
+                    <strong id="minutes">00</strong>
+                    <span>Minutes</span>
+                </div>
+
+                <div class="count-box">
+                    <strong id="seconds">00</strong>
+                    <span>Seconds</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- =========================
-     LIVE TOOLS
-========================= -->
+<!-- LIVE TOOLS -->
 
 <section>
 
-<div class="container">
+    <div class="container">
 
-<div class="section-title">
+        <div class="section-title">
 
-    <h2>Live Tools</h2>
+            <h2>Live Tools</h2>
 
-    <p>
-        Nepal time and Mangal Dhun
-    </p>
+            <p>
+                Nepal time and Dashain music.
+            </p>
 
-</div>
+        </div>
+
+        <div class="tools-grid">
+
+            <!-- DATE & TIME -->
+
+            <div class="tool-card">
+
+                <h3>
+                    🇳🇵 आजको नेपाली मिति र समय
+                </h3>
+
+                <div class="nepali-date">
+                    ५ असोज २०८३, सोमबार
+                </div>
+
+                <div class="english-date">
+                    21 September 2026
+                </div>
+
+                <div
+                    class="nepal-time"
+                    id="nepalTime"
+                >
+                    00:00:00
+                </div>
+
+                <div class="date-text">
+                    नेपाल समय (NST)
+                </div>
+
+            </div>
 
 
-<div class="tools">
+            <!-- MUSIC -->
 
+            <div class="tool-card">
 
-<!-- NEPAL DATE & TIME -->
+                <h3>
+                    🪔 Mangal Dhun
+                </h3>
 
-<div class="tool-card">
+                <p
+                    style="
+                    color:var(--muted);
+                    margin-top:8px;
+                    "
+                >
+                    Listen to the peaceful
+                    Mangal Dhun.
+                </p>
 
-    <h3>
-        🇳🇵 आजको नेपाली मिति र समय
-    </h3>
+                <div class="music-player">
 
-    <div class="nepali-date" id="nepaliDate">
-        ५ असोज २०८३, सोमबार
+                    <button
+                        class="music-button"
+                        onclick="toggleMusic()"
+                    >
+                        ▶ Play Mangal Dhun
+                    </button>
+
+                    <div
+                        id="musicStatus"
+                        class="music-status"
+                    >
+                        Music is ready
+                    </div>
+
+                    <audio
+                        id="mangalAudio"
+                        src="mangal-dhun.mp3"
+                    ></audio>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-
-    <div class="english-date">
-        21 September 2026
-    </div>
-
-    <div class="nepal-time" id="nepalTime">
-        00:00:00
-    </div>
-
-    <div class="date-text">
-        नेपाल समय (NST)
-    </div>
-
-</div>
-
-
-<!-- MANGAL DHUN -->
-
-<div class="tool-card">
-
-    <h3>
-        🎵 Mangal Dhun
-    </h3>
-
-    <p style="color:var(--muted);">
-        Listen to the peaceful Mangal Dhun
-    </p>
-
-    <button class="music-button" id="musicBtn">
-        ▶ Play Mangal Dhun
-    </button>
-
-    <div class="music-status" id="musicStatus">
-        Music is paused
-    </div>
-
-    <audio id="mangalAudio" src="mangal-dhun.mp3"></audio>
-
-</div>
-
-
-</div>
-
-</div>
 
 </section>
 
 
-<!-- =========================
-     CONTACT
-========================= -->
+<!-- CONTACT -->
 
 <section id="contact">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-title">
+        <div class="section-title">
 
-    <h2>Let's Talk</h2>
+            <h2>Let's Talk</h2>
 
-    <p>
-        Have an idea? Let's create something interesting.
-    </p>
+            <p>
+                Have an idea? Let's create something awesome.
+            </p>
 
-</div>
+        </div>
 
+        <div class="contact-box">
 
-<div class="card contact-box">
+            <h3>
+                📩 Get in Touch
+            </h3>
 
-    <p>
-        You can contact me through email for creative ideas,
-        projects and collaborations.
-    </p>
+            <p
+                style="
+                color:var(--muted);
+                margin-top:12px;
+                "
+            >
+                You can contact me through email.
+            </p>
 
-    <a
-        class="email"
-        href="mailto:roshishnepal73@gmail.com"
-    >
-        roshishnepal73@gmail.com
-    </a>
+            <a
+                class="email"
+                href="mailto:roshishnepal73@gmail.com"
+            >
+                roshishnepal73@gmail.com
+            </a>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
-    © 2026 Roshish Nepal • Creator & Developer
+    © 2026
+    <span>Roshish Nepal</span>.
+    All rights reserved.
 
 </footer>
 
 
 <!-- SCROLL TOP -->
 
-<button id="topBtn">
+<button
+    id="topBtn"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})"
+>
     ↑
 </button>
 
@@ -1125,166 +1314,315 @@ footer{
 <script>
 
 /* =========================
-   DASHAIN COUNTDOWN
-========================= */
+   DASHAIN POPUP COUNTDOWN
+   ========================= */
 
 const dashainDate =
-new Date("2026-10-21T00:00:00+05:45").getTime();
+    new Date("2026-10-21T00:00:00+05:45");
 
-function updateCountdown(){
+function updateDashainPopup(){
 
-    const now = new Date().getTime();
+    const now = new Date();
 
-    const distance = dashainDate - now;
+    const difference =
+        dashainDate - now;
 
-    if(distance <= 0){
+    if(difference <= 0){
 
-        document.getElementById("days").textContent = "0";
-        document.getElementById("hours").textContent = "0";
-        document.getElementById("minutes").textContent = "0";
-        document.getElementById("seconds").textContent = "0";
+        document.getElementById(
+            "dashainDays"
+        ).textContent = "🎉";
+
+        document.getElementById(
+            "dashainCountdown"
+        ).textContent =
+            "शुभ बडा दशैं २०८३!";
 
         return;
     }
 
+    const totalSeconds =
+        Math.floor(difference / 1000);
+
     const days =
-        Math.floor(distance / (1000 * 60 * 60 * 24));
+        Math.floor(
+            totalSeconds / 86400
+        );
 
     const hours =
         Math.floor(
-            (distance % (1000 * 60 * 60 * 24))
-            / (1000 * 60 * 60)
+            (totalSeconds % 86400) / 3600
         );
 
     const minutes =
         Math.floor(
-            (distance % (1000 * 60 * 60))
-            / (1000 * 60)
+            (totalSeconds % 3600) / 60
         );
 
     const seconds =
-        Math.floor(
-            (distance % (1000 * 60))
-            / 1000
-        );
+        totalSeconds % 60;
 
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
+    document.getElementById(
+        "dashainDays"
+    ).textContent = days;
+
+    document.getElementById(
+        "dashainCountdown"
+    ).textContent =
+        String(days).padStart(2,"0") +
+        " : " +
+        String(hours).padStart(2,"0") +
+        " : " +
+        String(minutes).padStart(2,"0") +
+        " : " +
+        String(seconds).padStart(2,"0");
+
 }
 
-updateCountdown();
+updateDashainPopup();
 
-setInterval(updateCountdown,1000);
+setInterval(
+    updateDashainPopup,
+    1000
+);
 
 
 /* =========================
-   NEPAL LIVE TIME
-========================= */
+   SKIP DASHAIN POPUP
+   ========================= */
+
+function skipDashain(){
+
+    const popup =
+        document.getElementById(
+            "dashainPopup"
+        );
+
+    popup.style.opacity = "0";
+
+    setTimeout(function(){
+
+        popup.style.display = "none";
+
+    },300);
+
+}
+
+
+/* =========================
+   MAIN DASHAIN COUNTDOWN
+   ========================= */
+
+function updateMainCountdown(){
+
+    const now = new Date();
+
+    const difference =
+        dashainDate - now;
+
+    if(difference <= 0){
+
+        document.getElementById(
+            "days"
+        ).textContent = "🎉";
+
+        document.getElementById(
+            "hours"
+        ).textContent = "00";
+
+        document.getElementById(
+            "minutes"
+        ).textContent = "00";
+
+        document.getElementById(
+            "seconds"
+        ).textContent = "00";
+
+        return;
+    }
+
+    const totalSeconds =
+        Math.floor(
+            difference / 1000
+        );
+
+    const days =
+        Math.floor(
+            totalSeconds / 86400
+        );
+
+    const hours =
+        Math.floor(
+            (totalSeconds % 86400) / 3600
+        );
+
+    const minutes =
+        Math.floor(
+            (totalSeconds % 3600) / 60
+        );
+
+    const seconds =
+        totalSeconds % 60;
+
+    document.getElementById(
+        "days"
+    ).textContent =
+        String(days).padStart(2,"0");
+
+    document.getElementById(
+        "hours"
+    ).textContent =
+        String(hours).padStart(2,"0");
+
+    document.getElementById(
+        "minutes"
+    ).textContent =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById(
+        "seconds"
+    ).textContent =
+        String(seconds).padStart(2,"0");
+
+}
+
+updateMainCountdown();
+
+setInterval(
+    updateMainCountdown,
+    1000
+);
+
+
+/* =========================
+   NEPAL TIME
+   ========================= */
 
 function updateNepalTime(){
 
     const now = new Date();
 
     const time =
-        new Intl.DateTimeFormat("en-US",{
-            timeZone:"Asia/Kathmandu",
-            hour:"2-digit",
-            minute:"2-digit",
-            second:"2-digit",
-            hour12:true
-        }).format(now);
+        new Intl.DateTimeFormat(
+            "en-US",
+            {
+                timeZone:"Asia/Kathmandu",
+                hour:"2-digit",
+                minute:"2-digit",
+                second:"2-digit",
+                hour12:true
+            }
+        ).format(now);
 
-    document.getElementById("nepalTime").textContent = time;
+    document.getElementById(
+        "nepalTime"
+    ).textContent = time;
+
 }
 
 updateNepalTime();
 
-setInterval(updateNepalTime,1000);
+setInterval(
+    updateNepalTime,
+    1000
+);
 
 
 /* =========================
    MANGAL DHUN
-========================= */
+   ========================= */
 
 const audio =
-document.getElementById("mangalAudio");
+    document.getElementById(
+        "mangalAudio"
+    );
 
-const musicBtn =
-document.getElementById("musicBtn");
+const musicButton =
+    document.querySelector(
+        ".music-button"
+    );
 
 const musicStatus =
-document.getElementById("musicStatus");
+    document.getElementById(
+        "musicStatus"
+    );
 
-musicBtn.addEventListener("click",function(){
+function toggleMusic(){
 
     if(audio.paused){
 
-        audio.play();
+        audio.play()
+        .then(function(){
 
-        musicBtn.textContent =
-            "⏸ Pause Mangal Dhun";
+            musicButton.textContent =
+                "⏸ Pause Mangal Dhun";
 
-        musicStatus.textContent =
-            "Mangal Dhun is playing 🎵";
+            musicStatus.textContent =
+                "Playing Mangal Dhun 🪔";
+
+        })
+        .catch(function(){
+
+            musicStatus.textContent =
+                "Click again to play the music.";
+
+        });
 
     }else{
 
         audio.pause();
 
-        musicBtn.textContent =
+        musicButton.textContent =
             "▶ Play Mangal Dhun";
 
         musicStatus.textContent =
-            "Music is paused";
+            "Music paused";
 
     }
 
-});
+}
 
+audio.addEventListener(
+    "ended",
+    function(){
 
-audio.addEventListener("ended",function(){
+        musicButton.textContent =
+            "▶ Play Mangal Dhun";
 
-    musicBtn.textContent =
-        "▶ Play Mangal Dhun";
+        musicStatus.textContent =
+            "Music finished";
 
-    musicStatus.textContent =
-        "Music is paused";
-
-});
+    }
+);
 
 
 /* =========================
-   SCROLL TO TOP
-========================= */
+   SCROLL TOP BUTTON
+   ========================= */
 
-const topBtn =
-document.getElementById("topBtn");
+window.addEventListener(
+    "scroll",
+    function(){
 
-window.addEventListener("scroll",function(){
+        const button =
+            document.getElementById(
+                "topBtn"
+            );
 
-    if(window.scrollY > 400){
+        if(window.scrollY > 500){
 
-        topBtn.style.display = "block";
+            button.style.display =
+                "block";
 
-    }else{
+        }else{
 
-        topBtn.style.display = "none";
+            button.style.display =
+                "none";
+
+        }
 
     }
-
-});
-
-
-topBtn.addEventListener("click",function(){
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
-});
+);
 
 </script>
 
