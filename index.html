@@ -1407,6 +1407,35 @@ body.light-theme .form-group select option{
    CONTACT
 ===================================================== */
 
+.contact-form{
+    margin-top:32px;
+    text-align:left;
+    padding-top:28px;
+    border-top:1px solid rgba(255,255,255,.12);
+}
+
+.contact-form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.contact-submit{
+    border:0;
+    cursor:pointer;
+    margin-top:4px;
+}
+
+.contact-status{
+    margin:12px 0 0;
+    font-size:.9rem;
+    opacity:.85;
+}
+
+@media (max-width:700px){
+    .contact-form-grid{grid-template-columns:1fr;}
+}
+
 .contact-box{
     max-width:900px;
     margin:auto;
@@ -1890,19 +1919,59 @@ footer strong{
 }
 
 
-.nav-links a.active{
-    color:var(--cyan);
-}
-.nav-links a.active::after{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:-8px;
-    height:2px;
-    border-radius:5px;
-    background:var(--cyan);
-}
+
+/* =====================================================
+   SINGLE-PAGE NAVIGATION
+===================================================== */
+.page-section{display:none !important;}
+.page-section.active{display:block !important;}
+.page-section.active.hero{display:flex !important;}
+.nav-links a.active{color:var(--cyan);}
+.nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;border-radius:10px;background:var(--cyan);box-shadow:0 0 10px var(--cyan);}
+.mobile-menu a.active{background:var(--card);color:var(--cyan);}
+
+/* =====================================================
+   ROSHISH AI CHAT
+===================================================== */
+.ai-launcher{position:fixed;right:22px;bottom:84px;z-index:6000;width:58px;height:58px;border:1px solid rgba(0,229,255,.45);border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--purple));color:#fff;cursor:pointer;font-size:25px;box-shadow:0 10px 35px rgba(0,229,255,.25);transition:.3s;}
+.ai-launcher:hover{transform:translateY(-4px) scale(1.04);}
+.ai-chat{position:fixed;right:22px;bottom:153px;width:min(370px,calc(100vw - 30px));height:500px;z-index:5999;display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--border);border-radius:24px;background:rgba(8,8,16,.94);backdrop-filter:blur(25px);box-shadow:0 25px 80px rgba(0,0,0,.45);opacity:0;visibility:hidden;transform:translateY(15px) scale(.97);transition:.3s;}
+body.light-theme .ai-chat{background:rgba(255,255,255,.96);}
+.ai-chat.open{opacity:1;visibility:visible;transform:translateY(0) scale(1);}
+.ai-head{display:flex;align-items:center;justify-content:space-between;padding:16px 17px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,rgba(0,229,255,.09),rgba(139,92,246,.10));}
+.ai-brand{display:flex;align-items:center;gap:11px;}
+.ai-avatar{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--purple));font-size:20px;}
+.ai-brand strong{display:block;font-size:14px;}
+.ai-brand small{display:block;color:var(--muted);font-size:11px;margin-top:3px;}
+.ai-close{width:34px;height:34px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text);cursor:pointer;font-size:17px;}
+.ai-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:11px;}
+.ai-msg{max-width:85%;padding:11px 13px;border-radius:15px;font-size:13px;line-height:1.55;word-wrap:break-word;}
+.ai-msg.bot{align-self:flex-start;background:var(--card);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:5px;}
+.ai-msg.user{align-self:flex-end;background:linear-gradient(135deg,var(--cyan),var(--purple));color:#fff;border-bottom-right-radius:5px;}
+.ai-suggestions{display:flex;gap:7px;overflow-x:auto;padding:0 14px 10px;}
+.ai-suggestion{white-space:nowrap;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:20px;padding:7px 10px;font-size:11px;cursor:pointer;}
+.ai-suggestion:hover{border-color:var(--cyan);color:var(--cyan);}
+.ai-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--border);}
+.ai-input{flex:1;min-width:0;padding:12px 13px;border:1px solid var(--border);border-radius:13px;outline:none;background:var(--card);color:var(--text);font-family:inherit;font-size:13px;}
+.ai-input:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,229,255,.07);}
+.ai-send{width:45px;border:0;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--purple));color:#fff;cursor:pointer;font-size:18px;}
+@media(max-width:700px){.ai-launcher{right:15px;bottom:78px;width:54px;height:54px}.ai-chat{right:15px;bottom:143px;height:min(500px,calc(100vh - 180px));width:calc(100vw - 30px);}}
+
+
+/* =====================================================
+   ROSHISH AI CHAT BOX
+===================================================== */
+#aiLauncher{position:fixed;right:22px;bottom:85px;width:58px;height:58px;border:1px solid rgba(0,229,255,.35);border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--purple));color:#fff;font-size:26px;cursor:pointer;z-index:99990;box-shadow:0 10px 35px rgba(0,0,0,.35),0 0 25px rgba(0,229,255,.18);transition:.3s}
+#aiLauncher:hover{transform:translateY(-4px) scale(1.05)}
+#aiChat{position:fixed;right:22px;bottom:155px;width:min(370px,calc(100vw - 30px));height:500px;display:flex;flex-direction:column;overflow:hidden;background:rgba(8,10,20,.94);border:1px solid var(--border);border-radius:24px;box-shadow:0 25px 80px rgba(0,0,0,.5);backdrop-filter:blur(20px);z-index:99989;opacity:0;visibility:hidden;transform:translateY(20px) scale(.96);transition:.3s}
+#aiChat.open{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.ai-head{display:flex;align-items:center;justify-content:space-between;padding:17px 18px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,rgba(0,229,255,.12),rgba(139,92,246,.12))}
+.ai-title{display:flex;align-items:center;gap:10px;font-weight:900}.ai-title-icon{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:linear-gradient(135deg,var(--cyan),var(--purple));font-size:20px}.ai-sub{font-size:11px;color:var(--muted);margin-top:2px}
+#aiClose{border:0;background:transparent;color:var(--muted);font-size:22px;cursor:pointer;padding:5px}#aiClose:hover{color:var(--text)}
+#aiMessages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}.ai-msg{max-width:82%;padding:10px 13px;border-radius:15px;font-size:13px;line-height:1.5;word-wrap:break-word}.ai-msg.bot{align-self:flex-start;background:var(--card);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:5px}.ai-msg.user{align-self:flex-end;background:linear-gradient(135deg,var(--cyan),var(--purple));color:#fff;border-bottom-right-radius:5px}
+.ai-suggestions{display:flex;gap:7px;overflow-x:auto;padding:0 14px 10px}.ai-suggestion{white-space:nowrap;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:20px;padding:7px 10px;font-size:11px;cursor:pointer}.ai-suggestion:hover{border-color:var(--cyan);color:var(--cyan)}
+#aiForm{display:flex;gap:8px;padding:12px;border-top:1px solid var(--border)}#aiInput{flex:1;min-width:0;border:1px solid var(--border);outline:0;border-radius:13px;background:rgba(255,255,255,.05);color:var(--text);padding:11px 12px;font-family:inherit}#aiInput:focus{border-color:var(--cyan)}#aiForm button{width:44px;border:0;border-radius:12px;background:linear-gradient(135deg,var(--cyan),var(--purple));color:#fff;font-size:18px;cursor:pointer}
+@media(max-width:700px){#aiLauncher{right:15px;bottom:75px}#aiChat{right:15px;bottom:145px;width:calc(100vw - 30px);height:min(500px,70vh)}}
 
 </style>
 </head>
@@ -2000,6 +2069,34 @@ footer strong{
      NAVIGATION
 ===================================================== -->
 
+
+<!-- =====================================================
+     ROSHISH AI ASSISTANT
+===================================================== -->
+<button id="aiLauncher" aria-label="Open Roshish AI">🤖</button>
+
+<div id="aiChat" aria-hidden="true">
+  <div class="ai-head">
+    <div class="ai-title">
+      <div class="ai-title-icon">🤖</div>
+      <div><div>Roshish AI</div><div class="ai-sub">Website Assistant • Online</div></div>
+    </div>
+    <button id="aiClose" aria-label="Close chat">✕</button>
+  </div>
+  <div id="aiMessages">
+    <div class="ai-msg bot">Hi! 👋 I'm <b>Roshish AI</b>. Ask me about Roshish, services, pricing, projects, skills or contact details.</div>
+  </div>
+  <div class="ai-suggestions">
+    <button class="ai-suggestion" type="button">What services?</button>
+    <button class="ai-suggestion" type="button">Pricing?</button>
+    <button class="ai-suggestion" type="button">Contact?</button>
+  </div>
+  <form id="aiForm">
+    <input id="aiInput" type="text" placeholder="Ask Roshish AI..." autocomplete="off">
+    <button type="submit" aria-label="Send">➤</button>
+  </form>
+</div>
+
 <nav>
 
     <div class="logo">
@@ -2007,20 +2104,16 @@ footer strong{
     </div>
 
     <ul class="nav-links">
+
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#affiliate">Affiliate</a></li>
-        <li><a href="#sponsorship">Sponsorship</a></li>
         <li><a href="#timeline">Journey</a></li>
-        <li><a href="#support">Support</a></li>
-        <li><a href="#hire">Hire Me</a></li>
-        <li><a href="#dashain">Dashain</a></li>
         <li><a href="#contact">Contact</a></li>
+
     </ul>
 
     <div class="nav-right">
@@ -2045,6 +2138,7 @@ footer strong{
 <!-- MOBILE MENU -->
 
 <div class="mobile-menu" id="mobileMenu">
+
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#services">Services</a>
@@ -2052,20 +2146,18 @@ footer strong{
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#products">Digital Products</a>
-    <a href="#affiliate">Affiliate</a>
-    <a href="#sponsorship">Sponsorship</a>
     <a href="#timeline">Journey</a>
-    <a href="#support">Support</a>
     <a href="#hire">Hire Me</a>
     <a href="#dashain">Dashain</a>
     <a href="#contact">Contact</a>
+
 </div>
 
 <!-- =====================================================
      HERO
 ===================================================== -->
 
-<section id="home" class="page-section hero">
+<section id="home" class="hero">
 
     <div class="hero-content reveal">
 
@@ -3574,6 +3666,39 @@ footer strong{
 
             </div>
 
+            <!-- CONTACT FORM -->
+            <form id="contactForm" class="contact-form" onsubmit="sendContactForm(event)">
+
+                <div class="contact-form-grid">
+                    <div class="form-group">
+                        <label for="contactName">Name</label>
+                        <input id="contactName" name="name" type="text" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactAddress">Address</label>
+                        <input id="contactAddress" name="address" type="text" placeholder="Your address" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactEmail">Email</label>
+                    <input id="contactEmail" name="email" type="email" placeholder="your@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactMessage">Message</label>
+                    <textarea id="contactMessage" name="message" rows="5" placeholder="Write your message..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn primary contact-submit">
+                    Send Message ✈️
+                </button>
+
+                <p id="contactStatus" class="contact-status" aria-live="polite"></p>
+
+            </form>
+
             <div class="socials">
 
                 <!-- GITHUB -->
@@ -4238,68 +4363,116 @@ document.querySelector("footer").innerHTML =
     ' <strong>Roshish Nepal</strong> — Creator & Developer.'+
     "<br><br>Built with creativity & code 🚀";
 
-</script>
 
 
-<script>
 /* =====================================================
-   SINGLE SECTION NAVIGATION
-   All original sections stay in the HTML; only the
-   selected section is visible.
+   ROSHISH AI CHAT
 ===================================================== */
 (function(){
-    const sections = Array.from(document.querySelectorAll('section.page-section'));
-    const links = Array.from(document.querySelectorAll('a[href^="#"]'))
-        .filter(a => sections.some(sec => '#' + sec.id === a.getAttribute('href')));
-    const mobileMenu = document.getElementById('mobileMenu');
+    const launcher=document.getElementById("aiLauncher");
+    const chat=document.getElementById("aiChat");
+    const close=document.getElementById("aiClose");
+    const form=document.getElementById("aiForm");
+    const input=document.getElementById("aiInput");
+    const messages=document.getElementById("aiMessages");
 
-    function showSection(id, updateHash = true){
-        if(!sections.some(sec => sec.id === id)) id = 'home';
+    function openAI(){chat.classList.add("open");chat.setAttribute("aria-hidden","false");setTimeout(()=>input.focus(),200);}
+    function closeAI(){chat.classList.remove("open");chat.setAttribute("aria-hidden","true");}
+    launcher.addEventListener("click",()=>chat.classList.contains("open")?closeAI():openAI());
+    close.addEventListener("click",closeAI);
 
-        sections.forEach(sec => {
-            sec.classList.toggle('active', sec.id === id);
-        });
+    function addMessage(text,type){
+        const div=document.createElement("div");
+        div.className="ai-msg "+type;
+        div.textContent=text;
+        messages.appendChild(div);
+        messages.scrollTop=messages.scrollHeight;
+    }
 
-        links.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-        });
+    function answer(q){
+        const x=q.toLowerCase();
+        if(x.includes("service")||x.includes("what can")||x.includes("offer")) return "Roshish offers website development, HTML/CSS/JavaScript, graphic design, social media posters, video editing, school/college websites, business websites and portfolio websites.";
+        if(x.includes("price")||x.includes("cost")||x.includes("5000")) return "Website services start from NPR 5,000. The final price can depend on the project requirements.";
+        if(x.includes("contact")||x.includes("email")||x.includes("phone")||x.includes("facebook")) return "You can contact Roshish at roshishnepal73@gmail.com or 9862511510. Facebook: facebook.com/roshish.nepal.2025";
+        if(x.includes("about")||x.includes("who is")||x.includes("roshish")) return "Roshish Nepal is a Creator & Developer focused on websites, creative digital projects and innovative experiences.";
+        if(x.includes("skill")) return "Roshish’s listed skills include Web Development, Creative Design, Project Development and Creative Ideas.";
+        if(x.includes("project")) return "Featured projects include the Personal Portfolio, Dashain Special and Creative Experiments.";
+        if(x.includes("hire")||x.includes("work with")) return "You can use the Hire Me section to send a project request with your name, email, service and project details.";
+        if(x.includes("hello")||x.includes("hi")||x.includes("hey")) return "Hello! 👋 What would you like to know about Roshish’s website?";
+        if(x.includes("thank")) return "You’re welcome! 😊";
+        return "I’m the Roshish AI website assistant. Try asking about services, pricing, projects, skills, contact details, or how to hire Roshish.";
+    }
 
-        document.body.classList.add('single-section-mode');
+    function send(text){
+        if(!text.trim()) return;
+        addMessage(text.trim(),"user");
+        input.value="";
+        setTimeout(()=>addMessage(answer(text),"bot"),350);
+    }
 
-        if(mobileMenu) mobileMenu.classList.remove('open');
+    form.addEventListener("submit",e=>{e.preventDefault();send(input.value);});
+    document.querySelectorAll(".ai-suggestion").forEach(btn=>btn.addEventListener("click",()=>send(btn.textContent)));
+})();
 
-        window.scrollTo({top:0, behavior:'smooth'});
 
-        if(updateHash && location.hash !== '#' + id){
-            history.pushState({section:id}, '', '#' + id);
-        }
+/* =====================================================
+   PAGE / SECTION NAVIGATION
+===================================================== */
+(function(){
+    const pageSections=Array.from(document.querySelectorAll("section.page-section[id]"));
+    const pageIds=new Set(pageSections.map(section=>section.id));
+    const allHashLinks=Array.from(document.querySelectorAll('a[href^="#"]'));
 
-        // Re-run reveal observer/classes for the selected section.
-        document.querySelectorAll('.reveal').forEach(el => {
-            if(el.closest('section.page-section')?.id === id) {
-                el.classList.add('visible');
-            }
+    function updateActiveLinks(id){
+        allHashLinks.forEach(link=>{
+            const href=link.getAttribute("href");
+            link.classList.toggle("active",href && href.slice(1)===id);
         });
     }
 
-    links.forEach(link => {
-        link.addEventListener('click', function(e){
-            e.preventDefault();
-            showSection(this.getAttribute('href').substring(1));
-        });
-    });
+    function showSection(id,updateUrl){
+        if(!pageIds.has(id)) id="home";
+        pageSections.forEach(section=>section.classList.toggle("active",section.id===id));
+        updateActiveLinks(id);
+        const selected=document.getElementById(id);
+        if(selected) requestAnimationFrame(()=>selected.querySelectorAll(".reveal").forEach(el=>el.classList.add("visible")));
+        if(typeof mobileMenu!=="undefined" && mobileMenu) mobileMenu.classList.remove("open");
+        if(typeof menuBtn!=="undefined" && menuBtn) menuBtn.textContent="☰";
+        window.scrollTo({top:0,behavior:"smooth"});
+        if(updateUrl) history.pushState(null,"","#"+id);
+    }
 
-    window.addEventListener('popstate', () => {
-        showSection(location.hash.replace('#','') || 'home', false);
-    });
-
-    window.addEventListener('hashchange', () => {
-        showSection(location.hash.replace('#','') || 'home', false);
-    });
-
-    const initial = location.hash.replace('#','') || 'home';
-    showSection(initial, false);
+    allHashLinks.forEach(link=>link.addEventListener("click",event=>{
+        const href=link.getAttribute("href");
+        if(!href||href==="#") return;
+        const id=href.slice(1);
+        if(pageIds.has(id)){event.preventDefault();showSection(id,true);}
+    }));
+    window.addEventListener("popstate",()=>showSection(window.location.hash.replace("#","")||"home",false));
+    const first=window.location.hash.replace("#","")||"home";
+    showSection(pageIds.has(first)?first:"home",false);
 })();
+
+
+
+// Contact form: opens the visitor's email app with the form details.
+function sendContactForm(event){
+    event.preventDefault();
+    const name = document.getElementById('contactName').value.trim();
+    const address = document.getElementById('contactAddress').value.trim();
+    const email = document.getElementById('contactEmail').value.trim();
+    const message = document.getElementById('contactMessage').value.trim();
+    const subject = encodeURIComponent('New Website Contact from ' + name);
+    const body = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Address: ' + address + '\n' +
+        'Email: ' + email + '\n\n' +
+        'Message:\n' + message
+    );
+    window.location.href = 'mailto:roshishnepal73@gmail.com?subject=' + subject + '&body=' + body;
+    const status = document.getElementById('contactStatus');
+    if(status) status.textContent = 'Opening your email app…';
+}
 </script>
 
 </body>
