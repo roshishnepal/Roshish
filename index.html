@@ -1889,6 +1889,44 @@ footer strong{
     }
 }
 
+
+/* =====================================================
+   SINGLE-PAGE SECTION NAVIGATION
+===================================================== */
+
+.page-section{
+    display:none !important;
+}
+
+.page-section.active{
+    display:block !important;
+}
+
+.page-section.active.hero{
+    display:flex !important;
+}
+
+.nav-links a.active{
+    color:var(--cyan);
+}
+
+.nav-links a.active::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-7px;
+    height:2px;
+    border-radius:10px;
+    background:var(--cyan);
+    box-shadow:0 0 10px var(--cyan);
+}
+
+.mobile-menu a.active{
+    background:var(--card);
+    color:var(--cyan);
+}
+
 </style>
 </head>
 
@@ -2045,7 +2083,7 @@ footer strong{
      HERO
 ===================================================== -->
 
-<section id="home" class="hero">
+<section id="home" class="page-section hero">
 
     <div class="hero-content reveal">
 
@@ -2152,7 +2190,7 @@ footer strong{
      ABOUT
 ===================================================== -->
 
-<section id="about">
+<section id="about" class="page-section">
 
     <div class="container">
 
@@ -2237,7 +2275,7 @@ footer strong{
      SERVICES
 ===================================================== -->
 
-<section id="services">
+<section id="services" class="page-section">
 
     <div class="container">
 
@@ -2459,7 +2497,7 @@ footer strong{
      PRICING
 ===================================================== -->
 
-<section id="pricing">
+<section id="pricing" class="page-section">
 
     <div class="container">
 
@@ -2556,7 +2594,7 @@ footer strong{
      SKILLS
 ===================================================== -->
 
-<section id="skills">
+<section id="skills" class="page-section">
 
     <div class="container">
 
@@ -2641,7 +2679,7 @@ footer strong{
      PROJECTS
 ===================================================== -->
 
-<section id="projects">
+<section id="projects" class="page-section">
 
     <div class="container">
 
@@ -2784,7 +2822,7 @@ footer strong{
      DIGITAL PRODUCTS
 ===================================================== -->
 
-<section id="products">
+<section id="products" class="page-section">
 
     <div class="container">
 
@@ -2880,7 +2918,7 @@ footer strong{
      RECOMMENDED / AFFILIATE
 ===================================================== -->
 
-<section id="affiliate">
+<section id="affiliate" class="page-section">
 
     <div class="container">
 
@@ -2981,7 +3019,7 @@ footer strong{
      SPONSORSHIP
 ===================================================== -->
 
-<section id="sponsorship">
+<section id="sponsorship" class="page-section">
 
     <div class="container">
 
@@ -3016,7 +3054,7 @@ footer strong{
      JOURNEY
 ===================================================== -->
 
-<section id="timeline">
+<section id="timeline" class="page-section">
 
     <div class="container">
 
@@ -3133,7 +3171,7 @@ footer strong{
      SUPPORT
 ===================================================== -->
 
-<section id="support">
+<section id="support" class="page-section">
 
     <div class="container">
 
@@ -3172,7 +3210,7 @@ footer strong{
      HIRE ME
 ===================================================== -->
 
-<section id="hire">
+<section id="hire" class="page-section">
 
     <div class="container">
 
@@ -3323,7 +3361,7 @@ footer strong{
      DASHAIN
 ===================================================== -->
 
-<section id="dashain">
+<section id="dashain" class="page-section">
 
     <div class="container">
 
@@ -3494,7 +3532,7 @@ footer strong{
      CONTACT
 ===================================================== -->
 
-<section id="contact">
+<section id="contact" class="page-section">
 
     <div class="container">
 
@@ -4217,6 +4255,153 @@ document.querySelector("footer").innerHTML =
     "© "+new Date().getFullYear()+
     ' <strong>Roshish Nepal</strong> — Creator & Developer.'+
     "<br><br>Built with creativity & code 🚀";
+
+
+/* =====================================================
+   PAGE / SECTION NAVIGATION
+   Each menu item shows only its selected section.
+===================================================== */
+
+(function(){
+
+    const pageSections =
+        Array.from(document.querySelectorAll("section.page-section[id]"));
+
+    const pageIds =
+        new Set(pageSections.map(section => section.id));
+
+    const allHashLinks =
+        Array.from(document.querySelectorAll('a[href^="#"]'));
+
+    function updateActiveLinks(id){
+
+        allHashLinks.forEach(function(link){
+
+            const href = link.getAttribute("href");
+            const linkId = href ? href.slice(1) : "";
+
+            if(linkId === id){
+                link.classList.add("active");
+            }else{
+                link.classList.remove("active");
+            }
+
+        });
+
+    }
+
+    function showSection(id, updateUrl){
+
+        if(!pageIds.has(id)){
+            id = "home";
+        }
+
+        pageSections.forEach(function(section){
+
+            section.classList.toggle(
+                "active",
+                section.id === id
+            );
+
+        });
+
+        updateActiveLinks(id);
+
+        // Make reveal elements visible after the selected section appears.
+        const selected =
+            document.getElementById(id);
+
+        if(selected){
+
+            requestAnimationFrame(function(){
+
+                selected
+                .querySelectorAll(".reveal")
+                .forEach(function(element){
+
+                    element.classList.add("visible");
+
+                });
+
+            });
+
+        }
+
+        // Close mobile navigation.
+        if(mobileMenu){
+            mobileMenu.classList.remove("open");
+        }
+
+        if(menuBtn){
+            menuBtn.textContent="☰";
+        }
+
+        // Always start the selected page from the top.
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+        if(updateUrl){
+
+            history.pushState(
+                null,
+                "",
+                "#" + id
+            );
+
+        }
+
+    }
+
+    allHashLinks.forEach(function(link){
+
+        link.addEventListener("click",function(event){
+
+            const href =
+                link.getAttribute("href");
+
+            if(!href || href === "#"){
+                return;
+            }
+
+            const id = href.slice(1);
+
+            // Only intercept links that point to a full page section.
+            if(pageIds.has(id)){
+
+                event.preventDefault();
+
+                showSection(id,true);
+
+            }
+
+        });
+
+    });
+
+    window.addEventListener("popstate",function(){
+
+        const id =
+            window.location.hash.replace("#","") ||
+            "home";
+
+        showSection(id,false);
+
+    });
+
+    const firstSection =
+        window.location.hash.replace("#","") ||
+        "home";
+
+    showSection(
+        pageIds.has(firstSection)
+        ? firstSection
+        : "home",
+        false
+    );
+
+})();
 
 </script>
 
