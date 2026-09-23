@@ -2258,6 +2258,114 @@ body.light-theme .ai-chat{background:rgba(255,255,255,.96);}
 
     </div>
 
+
+<!-- =====================================================
+     LIVE TOOLS
+===================================================== -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <span class="section-tag">
+                Live Tools
+            </span>
+
+            <h2>
+                Interactive Features
+            </h2>
+
+            <p>
+                Nepal time and Mangal Dhun.
+            </p>
+
+        </div>
+
+        <div class="tools-grid">
+
+            <div class="tool-card reveal">
+
+                <h3>
+                    🇳🇵 आजको नेपाली मिति र समय
+                </h3>
+
+                <div
+                    class="nepali-date"
+                    id="nepaliDate"
+                >
+                    Loading...
+                </div>
+
+                <div
+                    class="english-date"
+                    id="englishDate"
+                >
+                    Loading...
+                </div>
+
+                <div
+                    class="nepal-time"
+                    id="nepalTime"
+                >
+                    00:00:00
+                </div>
+
+                <div class="date-text">
+                    नेपाल समय (NST)
+                </div>
+
+            </div>
+
+            <div class="tool-card reveal">
+
+                <h3>
+                    🪔 Mangal Dhun
+                </h3>
+
+                <p style="
+                color:var(--muted);
+                margin-top:8px;
+                ">
+
+                    Listen to the peaceful
+                    Mangal Dhun.
+
+                </p>
+
+                <div class="music-player">
+
+                    <button
+                        class="music-button"
+                        id="musicButton"
+                        onclick="toggleMusic()"
+                    >
+                        ▶ Play Mangal Dhun
+                    </button>
+
+                    <div
+                        id="musicStatus"
+                        class="music-status"
+                    >
+                        Music is ready
+                    </div>
+
+                    <audio
+                        id="mangalAudio"
+                        src="mangal-dhun.mp3"
+                    ></audio>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 </section>
 
 <!-- =====================================================
@@ -3485,113 +3593,6 @@ body.light-theme .ai-chat{background:rgba(255,255,255,.96);}
                 <div class="count-box">
                     <strong id="seconds">00</strong>
                     <span>Seconds</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =====================================================
-     LIVE TOOLS
-===================================================== -->
-
-<section>
-
-    <div class="container">
-
-        <div class="section-title reveal">
-
-            <span class="section-tag">
-                Live Tools
-            </span>
-
-            <h2>
-                Interactive Features
-            </h2>
-
-            <p>
-                Nepal time and Mangal Dhun.
-            </p>
-
-        </div>
-
-        <div class="tools-grid">
-
-            <div class="tool-card reveal">
-
-                <h3>
-                    🇳🇵 आजको नेपाली मिति र समय
-                </h3>
-
-                <div
-                    class="nepali-date"
-                    id="nepaliDate"
-                >
-                    Loading...
-                </div>
-
-                <div
-                    class="english-date"
-                    id="englishDate"
-                >
-                    Loading...
-                </div>
-
-                <div
-                    class="nepal-time"
-                    id="nepalTime"
-                >
-                    00:00:00
-                </div>
-
-                <div class="date-text">
-                    नेपाल समय (NST)
-                </div>
-
-            </div>
-
-            <div class="tool-card reveal">
-
-                <h3>
-                    🪔 Mangal Dhun
-                </h3>
-
-                <p style="
-                color:var(--muted);
-                margin-top:8px;
-                ">
-
-                    Listen to the peaceful
-                    Mangal Dhun.
-
-                </p>
-
-                <div class="music-player">
-
-                    <button
-                        class="music-button"
-                        id="musicButton"
-                        onclick="toggleMusic()"
-                    >
-                        ▶ Play Mangal Dhun
-                    </button>
-
-                    <div
-                        id="musicStatus"
-                        class="music-status"
-                    >
-                        Music is ready
-                    </div>
-
-                    <audio
-                        id="mangalAudio"
-                        src="mangal-dhun.mp3"
-                    ></audio>
-
                 </div>
 
             </div>
