@@ -2090,6 +2090,99 @@ footer{
     .stats{max-width:100%;}
 }
 
+/* FINAL — SINGLE COLUMN ON PC + MOBILE */
+.stats,
+.card-grid,
+.services-grid,
+.pricing-grid,
+.projects,
+.business-grid,
+.tools-grid,
+.contact-grid,
+.contact-form-grid,
+.form-row {
+    grid-template-columns: 1fr !important;
+}
+
+/* Keep every major content block straight and centered */
+.card-grid,
+.services-grid,
+.pricing-grid,
+.projects,
+.business-grid,
+.tools-grid,
+.stats {
+    width: 100%;
+    max-width: 950px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.tool-card,
+.card,
+.service-card,
+.price-card,
+.project,
+.business-card,
+.stat {
+    width: 100%;
+}
+
+/* Copyright stays only in the footer, at the very bottom */
+footer {
+    width: 100%;
+    margin-top: 0;
+    text-align: center;
+    clear: both;
+    display: block;
+}
+
+footer strong {
+    display: inline;
+}
+
+@media (max-width: 700px) {
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-buttons a {
+        width: min(100%, 360px);
+    }
+}
+
+
+/* FINAL FOOTER FIX — FULL WIDTH, CENTERED, LAST ON PAGE */
+html, body {
+    width:100%;
+    min-width:0;
+}
+body {
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+}
+body > footer {
+    order:999999 !important;
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:35px 20px !important;
+    display:block !important;
+    position:relative !important;
+    left:auto !important;
+    right:auto !important;
+    float:none !important;
+    clear:both !important;
+    flex:none !important;
+    grid-column:1 / -1 !important;
+    text-align:center !important;
+    box-sizing:border-box !important;
+}
+body > footer strong {
+    display:inline !important;
+}
+
 </style>
 </head>
 
@@ -2483,6 +2576,8 @@ footer{
     </div>
 
 
+
+</section>
 
 <!-- =====================================================
      ABOUT
@@ -3885,20 +3980,13 @@ footer{
      FOOTER
 ===================================================== -->
 
-<footer>
-
-    © 2026
-
-    <strong>
-        Roshish Nepal
-    </strong>
-
-    — Creator & Developer.
-
-    <br><br>
-
-    Built with creativity & code 🚀
-
+<footer id="siteFooter">
+    <div class="footer-content">
+        © <span id="footerYear">2026</span>
+        <strong>Roshish Nepal</strong> — Creator & Developer.
+        <br><br>
+        Built with creativity &amp; code 🚀
+    </div>
 </footer>
 
 <button
@@ -4477,10 +4565,8 @@ function sendHireRequest(event){
    YEAR
 ===================================================== */
 
-document.querySelector("footer").innerHTML =
-    "© "+new Date().getFullYear()+
-    ' <strong>Roshish Nepal</strong> — Creator & Developer.'+
-    "<br><br>Built with creativity & code 🚀";
+const footerYear = document.getElementById("footerYear");
+if(footerYear) footerYear.textContent = new Date().getFullYear();
 
 
 
